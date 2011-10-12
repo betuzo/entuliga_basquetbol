@@ -1,0 +1,365 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A2814511444B1AC0033B164 /* BasquetbolService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2814501444B1AC0033B164 /* BasquetbolService.m */; };
+		4A28145A144548D90033B164 /* JugadorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A281459144548D90033B164 /* JugadorCell.xib */; };
+		4A28145F1445544F0033B164 /* JugadorCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A28145E1445544F0033B164 /* JugadorCellView.m */; };
+		4AE60CB61445D60B0044F7FA /* movedor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AE60CB11445D60B0044F7FA /* movedor.jpg */; };
+		4AE60CB71445D60B0044F7FA /* alaizquierda.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AE60CB21445D60B0044F7FA /* alaizquierda.jpg */; };
+		4AE60CB81445D60B0044F7FA /* posteizquierdo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AE60CB31445D60B0044F7FA /* posteizquierdo.jpg */; };
+		4AE60CB91445D60B0044F7FA /* postederecho.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AE60CB41445D60B0044F7FA /* postederecho.jpg */; };
+		4AE60CBA1445D60B0044F7FA /* aladerecha.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AE60CB51445D60B0044F7FA /* aladerecha.jpg */; };
+		4AE60CBD1445D6860044F7FA /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AE60CBC1445D6860044F7FA /* base.png */; };
+		4AE60CC31445E4EC0044F7FA /* Jugador.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE60CC21445E4EC0044F7FA /* Jugador.m */; };
+		4AE60CC61445E4EC0044F7FA /* Equipo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE60CC51445E4EC0044F7FA /* Equipo.m */; };
+		4AF7557A1443B11600163570 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF755791443B11600163570 /* UIKit.framework */; };
+		4AF7557C1443B11600163570 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF7557B1443B11600163570 /* Foundation.framework */; };
+		4AF7557E1443B11600163570 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF7557D1443B11600163570 /* CoreGraphics.framework */; };
+		4AF755841443B11600163570 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AF755821443B11600163570 /* InfoPlist.strings */; };
+		4AF755861443B11600163570 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF755851443B11600163570 /* main.m */; };
+		4AF7558A1443B11600163570 /* BasquetbolAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF755891443B11600163570 /* BasquetbolAppDelegate.m */; };
+		4AF7558D1443B11600163570 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AF7558B1443B11600163570 /* MainWindow.xib */; };
+		4AF755901443B11600163570 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7558F1443B11600163570 /* RootViewController.m */; };
+		4AF755931443B11700163570 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AF755911443B11600163570 /* RootViewController.xib */; };
+		4AF7559B1443B14900163570 /* Basquetbol.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AF755991443B14900163570 /* Basquetbol.xcdatamodeld */; };
+		4AF755A31443B34500163570 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF755A21443B34500163570 /* CoreData.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A28144F1444B1AC0033B164 /* BasquetbolService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasquetbolService.h; sourceTree = "<group>"; };
+		4A2814501444B1AC0033B164 /* BasquetbolService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasquetbolService.m; sourceTree = "<group>"; };
+		4A281459144548D90033B164 /* JugadorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JugadorCell.xib; sourceTree = "<group>"; };
+		4A28145D1445544F0033B164 /* JugadorCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JugadorCellView.h; sourceTree = "<group>"; };
+		4A28145E1445544F0033B164 /* JugadorCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JugadorCellView.m; sourceTree = "<group>"; };
+		4AE60CB11445D60B0044F7FA /* movedor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = movedor.jpg; sourceTree = "<group>"; };
+		4AE60CB21445D60B0044F7FA /* alaizquierda.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = alaizquierda.jpg; sourceTree = "<group>"; };
+		4AE60CB31445D60B0044F7FA /* posteizquierdo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = posteizquierdo.jpg; sourceTree = "<group>"; };
+		4AE60CB41445D60B0044F7FA /* postederecho.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = postederecho.jpg; sourceTree = "<group>"; };
+		4AE60CB51445D60B0044F7FA /* aladerecha.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aladerecha.jpg; sourceTree = "<group>"; };
+		4AE60CBC1445D6860044F7FA /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base.png; sourceTree = "<group>"; };
+		4AE60CC11445E4EC0044F7FA /* Jugador.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jugador.h; sourceTree = "<group>"; };
+		4AE60CC21445E4EC0044F7FA /* Jugador.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Jugador.m; sourceTree = "<group>"; };
+		4AE60CC41445E4EC0044F7FA /* Equipo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Equipo.h; sourceTree = "<group>"; };
+		4AE60CC51445E4EC0044F7FA /* Equipo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Equipo.m; sourceTree = "<group>"; };
+		4AF755751443B11600163570 /* Basquetbol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Basquetbol.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AF755791443B11600163570 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4AF7557B1443B11600163570 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4AF7557D1443B11600163570 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4AF755811443B11600163570 /* Basquetbol-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Basquetbol-Info.plist"; sourceTree = "<group>"; };
+		4AF755831443B11600163570 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4AF755851443B11600163570 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4AF755871443B11600163570 /* Basquetbol-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Basquetbol-Prefix.pch"; sourceTree = "<group>"; };
+		4AF755881443B11600163570 /* BasquetbolAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasquetbolAppDelegate.h; sourceTree = "<group>"; };
+		4AF755891443B11600163570 /* BasquetbolAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasquetbolAppDelegate.m; sourceTree = "<group>"; };
+		4AF7558C1443B11600163570 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		4AF7558E1443B11600163570 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		4AF7558F1443B11600163570 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		4AF755921443B11700163570 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		4AF7559A1443B14900163570 /* Basquetbol.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Basquetbol.xcdatamodel; sourceTree = "<group>"; };
+		4AF755A21443B34500163570 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4AF755721443B11600163570 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AF755A31443B34500163570 /* CoreData.framework in Frameworks */,
+				4AF7557A1443B11600163570 /* UIKit.framework in Frameworks */,
+				4AF7557C1443B11600163570 /* Foundation.framework in Frameworks */,
+				4AF7557E1443B11600163570 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4AF7556A1443B11600163570 = {
+			isa = PBXGroup;
+			children = (
+				4AE60CC41445E4EC0044F7FA /* Equipo.h */,
+				4AE60CC51445E4EC0044F7FA /* Equipo.m */,
+				4AE60CC11445E4EC0044F7FA /* Jugador.h */,
+				4AE60CC21445E4EC0044F7FA /* Jugador.m */,
+				4AF755A21443B34500163570 /* CoreData.framework */,
+				4AF755991443B14900163570 /* Basquetbol.xcdatamodeld */,
+				4AF7557F1443B11600163570 /* Basquetbol */,
+				4AF755781443B11600163570 /* Frameworks */,
+				4AF755761443B11600163570 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4AF755761443B11600163570 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AF755751443B11600163570 /* Basquetbol.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4AF755781443B11600163570 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4AF755791443B11600163570 /* UIKit.framework */,
+				4AF7557B1443B11600163570 /* Foundation.framework */,
+				4AF7557D1443B11600163570 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4AF7557F1443B11600163570 /* Basquetbol */ = {
+			isa = PBXGroup;
+			children = (
+				4AE60CBC1445D6860044F7FA /* base.png */,
+				4AE60CB11445D60B0044F7FA /* movedor.jpg */,
+				4AE60CB21445D60B0044F7FA /* alaizquierda.jpg */,
+				4AE60CB31445D60B0044F7FA /* posteizquierdo.jpg */,
+				4AE60CB41445D60B0044F7FA /* postederecho.jpg */,
+				4AE60CB51445D60B0044F7FA /* aladerecha.jpg */,
+				4A281459144548D90033B164 /* JugadorCell.xib */,
+				4A28145D1445544F0033B164 /* JugadorCellView.h */,
+				4A28145E1445544F0033B164 /* JugadorCellView.m */,
+				4AF755881443B11600163570 /* BasquetbolAppDelegate.h */,
+				4AF755891443B11600163570 /* BasquetbolAppDelegate.m */,
+				4A28144F1444B1AC0033B164 /* BasquetbolService.h */,
+				4A2814501444B1AC0033B164 /* BasquetbolService.m */,
+				4AF7558B1443B11600163570 /* MainWindow.xib */,
+				4AF7558E1443B11600163570 /* RootViewController.h */,
+				4AF7558F1443B11600163570 /* RootViewController.m */,
+				4AF755911443B11600163570 /* RootViewController.xib */,
+				4AF755801443B11600163570 /* Supporting Files */,
+			);
+			path = Basquetbol;
+			sourceTree = "<group>";
+		};
+		4AF755801443B11600163570 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4AF755811443B11600163570 /* Basquetbol-Info.plist */,
+				4AF755821443B11600163570 /* InfoPlist.strings */,
+				4AF755851443B11600163570 /* main.m */,
+				4AF755871443B11600163570 /* Basquetbol-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4AF755741443B11600163570 /* Basquetbol */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AF755961443B11700163570 /* Build configuration list for PBXNativeTarget "Basquetbol" */;
+			buildPhases = (
+				4AF755711443B11600163570 /* Sources */,
+				4AF755721443B11600163570 /* Frameworks */,
+				4AF755731443B11600163570 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Basquetbol;
+			productName = Basquetbol;
+			productReference = 4AF755751443B11600163570 /* Basquetbol.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4AF7556C1443B11600163570 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Valle del Bit";
+			};
+			buildConfigurationList = 4AF7556F1443B11600163570 /* Build configuration list for PBXProject "Basquetbol" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4AF7556A1443B11600163570;
+			productRefGroup = 4AF755761443B11600163570 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4AF755741443B11600163570 /* Basquetbol */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4AF755731443B11600163570 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AF755841443B11600163570 /* InfoPlist.strings in Resources */,
+				4AF7558D1443B11600163570 /* MainWindow.xib in Resources */,
+				4AF755931443B11700163570 /* RootViewController.xib in Resources */,
+				4A28145A144548D90033B164 /* JugadorCell.xib in Resources */,
+				4AE60CB61445D60B0044F7FA /* movedor.jpg in Resources */,
+				4AE60CB71445D60B0044F7FA /* alaizquierda.jpg in Resources */,
+				4AE60CB81445D60B0044F7FA /* posteizquierdo.jpg in Resources */,
+				4AE60CB91445D60B0044F7FA /* postederecho.jpg in Resources */,
+				4AE60CBA1445D60B0044F7FA /* aladerecha.jpg in Resources */,
+				4AE60CBD1445D6860044F7FA /* base.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4AF755711443B11600163570 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AF755861443B11600163570 /* main.m in Sources */,
+				4AF7558A1443B11600163570 /* BasquetbolAppDelegate.m in Sources */,
+				4AF755901443B11600163570 /* RootViewController.m in Sources */,
+				4AF7559B1443B14900163570 /* Basquetbol.xcdatamodeld in Sources */,
+				4A2814511444B1AC0033B164 /* BasquetbolService.m in Sources */,
+				4A28145F1445544F0033B164 /* JugadorCellView.m in Sources */,
+				4AE60CC31445E4EC0044F7FA /* Jugador.m in Sources */,
+				4AE60CC61445E4EC0044F7FA /* Equipo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4AF755821443B11600163570 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AF755831443B11600163570 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4AF7558B1443B11600163570 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AF7558C1443B11600163570 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		4AF755911443B11600163570 /* RootViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AF755921443B11700163570 /* en */,
+			);
+			name = RootViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4AF755941443B11700163570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4AF755951443B11700163570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4AF755971443B11700163570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Basquetbol/Basquetbol-Prefix.pch";
+				INFOPLIST_FILE = "Basquetbol/Basquetbol-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4AF755981443B11700163570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Basquetbol/Basquetbol-Prefix.pch";
+				INFOPLIST_FILE = "Basquetbol/Basquetbol-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4AF7556F1443B11600163570 /* Build configuration list for PBXProject "Basquetbol" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AF755941443B11700163570 /* Debug */,
+				4AF755951443B11700163570 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AF755961443B11700163570 /* Build configuration list for PBXNativeTarget "Basquetbol" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AF755971443B11700163570 /* Debug */,
+				4AF755981443B11700163570 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4AF755991443B14900163570 /* Basquetbol.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4AF7559A1443B14900163570 /* Basquetbol.xcdatamodel */,
+			);
+			currentVersion = 4AF7559A1443B14900163570 /* Basquetbol.xcdatamodel */;
+			path = Basquetbol.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4AF7556C1443B11600163570 /* Project object */;
+}

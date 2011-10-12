@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="11B26" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Equipo" representedClassName="Equipo">
+        <attribute name="local" attributeType="String"/>
+        <attribute name="mascota" attributeType="String"/>
+        <attribute name="nombre" attributeType="String"/>
+        <relationship name="jugadores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Jugador" inverseName="equipo" inverseEntity="Jugador"/>
+    </entity>
+    <entity name="Jugador" representedClassName="Jugador">
+        <attribute name="apellido" attributeType="String"/>
+        <attribute name="estado" attributeType="String"/>
+        <attribute name="nombre" attributeType="String"/>
+        <attribute name="numero" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="posicion" attributeType="String"/>
+        <relationship name="equipo" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Equipo" inverseName="jugadores" inverseEntity="Equipo"/>
+    </entity>
+    <elements>
+        <element name="Equipo" positionX="10132" positionY="-11286" width="128" height="105"/>
+        <element name="Jugador" positionX="9882" positionY="-11430" width="128" height="135"/>
+    </elements>
+</model>
