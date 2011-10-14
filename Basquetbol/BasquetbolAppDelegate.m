@@ -13,10 +13,11 @@
 
 @synthesize window = _window;
 @synthesize navigationController = _navigationController;
+@synthesize service;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    serviceBasquetbol = [[BasquetbolService alloc] init]; 
+    serviceBasquetbol = [[[BasquetbolService alloc] init] autorelease]; 
     // Override point for customization after application launch.
     // Add the navigation controller's view to the window and display.
     self.window.rootViewController = self.navigationController;

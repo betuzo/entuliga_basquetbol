@@ -14,13 +14,13 @@
 
 - (void)viewDidLoad
 {
+    partidos = [service partidos];
     [super viewDidLoad];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    equipos = [service equipos];
-    [self setTitle:@"entuliga.com"];
+    [self setTitle:@"entuliga"];
     [super viewWillAppear:animated];
 }
 
@@ -50,51 +50,21 @@
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [equipos count];
+    return [partidos count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[equipos objectAtIndex:section] jugadores] count];
+    return 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    Equipo * tempEquipo = [equipos objectAtIndex:section];
-    return [[[NSString alloc] initWithFormat:@"%@ - %@", [tempEquipo nombre], [tempEquipo tipoEquipo]] autorelease]; // ¿Esta bien el autorelease?
+
+    return @"Partidos";
 }
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"JugadorCell";
-    
-    JugadorCellView * cell = (JugadorCellView *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    NSArray * nibObjects = [[NSBundle mainBundle] loadNibNamed:@"JugadorCell" owner:self options:nil];
-    
-    if (cell == nil) {
-        for (id objetoActual in nibObjects) {
-            if ([objetoActual isKindOfClass:[UITableViewCell class]] && 
-                [[objetoActual reuseIdentifier] isEqualToString:CellIdentifier]) {
-                cell = objetoActual;
-            }
-        }
-    }
-    
-    Jugador * tempJugador = (Jugador *)[[[[equipos objectAtIndex:indexPath.section] jugadores] allObjects] objectAtIndex:indexPath.row];
-    
-    cell.labelNombre.text = [[[NSString alloc] initWithFormat:@"%@ - %@", tempJugador.numero, tempJugador.nombre] autorelease]; // ¿Esta bien el autorelease?
-    cell.labelEstado.text = tempJugador.estado;
-    cell.labelPuntos.text = @"4 p";
-    cell.labelFaltas.text = @"2 f";
-    cell.labelMinutos.text = @"16 m";
-    cell.imageView.image = [service getImageByPosicion:tempJugador.posicion];
-    // Configure the cell.
-    return cell;
-}
-
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -103,15 +73,12 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-        
-    Jugador * tempJugador = (Jugador *)[[[[equipos objectAtIndex:indexPath.section] jugadores] allObjects] objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = tempJugador.nombre;
-    cell.detailTextLabel.text = tempJugador.posicion;
+    cell.textLabel.text = [[partidos objectAtIndex:indexPath.row] description];
+    cell.detailTextLabel.text = [[partidos objectAtIndex:indexPath.row] detailPartido];
     // Configure the cell.
     return cell;
 }
-*/
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -155,13 +122,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    
+    DetailPartidoController *detailViewController = [[DetailPartidoController alloc] initWithNibName:@"DetailPartidoController" bundle:nil];
     // ...
     // Pass the selected object to the new view controller.
+    [detailViewController setPartido:[partidos objectAtIndex:indexPath.row]];
+    [detailViewController setService:service];
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
-	*/
+	
 }
 
 - (void)didReceiveMemoryWarning

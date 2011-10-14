@@ -14,7 +14,9 @@
 @dynamic local;
 @dynamic mascota;
 @dynamic nombre;
+@dynamic numeroEquipo;
 @dynamic jugadores;
+@dynamic partido;
 
 -(NSString *) tipoEquipo
 {
@@ -28,6 +30,17 @@
     }
     return tmp;
     //¿Tengo que hacer algun release?
+}
+
+- (int) puntosTotal
+{
+    int puntosTotal = 0;
+    for (Jugador* jugador in [self jugadores]) 
+    {
+
+        puntosTotal = puntosTotal + [jugador puntosTotal];
+    }
+    return puntosTotal;
 }
 
 @end

@@ -9,6 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "Jugador.h"
 #import "Equipo.h"
+#import "Arbitro.h"
+#import "Enceste.h"
+#import "Robo.h"
+#import "Rebote.h"
+#import "Partido.h"
+#import "Falta.h"
+#import "Bloqueo.h"
+#import "Ingreso.h"
+#import "Asistencia.h"
 
 @interface BasquetbolService : NSObject
 {
@@ -16,8 +25,10 @@
     NSPersistentStoreCoordinator * persistentStoreCoordinator; 
     NSManagedObjectContext * managedObjectContext;
     
-    NSMutableArray * jugadores;
-    NSMutableArray * equipos;
+    NSMutableArray * partidos;
+    
+    //NSMutableArray * jugadores;
+    //NSMutableArray * equipos;
 }
 
 -(void)initializePersistanceStoreCoordinator;
@@ -28,11 +39,8 @@
 -(UIImage *)getImageByPosicion:(NSString *)posicion;
 -(void) initializeDatosTest;
 
--(NSMutableArray *) jugadores;
--(void)setJugadores:(NSMutableArray *) losJugadores;
--(NSMutableArray *) equipos;
--(void)setEquipos:(NSMutableArray *) losEquipos;
+-(NSMutableArray *) partidos;
+-(void)setPartidos:(NSMutableArray *) losPartidos;
 
--(NSMutableArray *) getJugadoresOfContext;
--(NSMutableArray *) getEquiposOfContext;
+-(NSMutableArray *) getPartidosOfContext;
 @end

@@ -1,21 +1,101 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="11B26" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Arbitro" representedClassName="Arbitro">
+        <attribute name="apellido" attributeType="String"/>
+        <attribute name="nombre" attributeType="String"/>
+        <attribute name="numeroArbitro" attributeType="Integer 16"/>
+        <attribute name="ubicacion" attributeType="String"/>
+        <relationship name="partido" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Partido" inverseName="arbitros" inverseEntity="Partido"/>
+    </entity>
+    <entity name="Asistencia" representedClassName="Asistencia">
+        <attribute name="min" attributeType="Integer 16"/>
+        <attribute name="tipo" attributeType="String"/>
+        <relationship name="asistente" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Jugador" inverseName="asistenciasRealizadas" inverseEntity="Jugador"/>
+        <relationship name="asistido" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Jugador" inverseName="asistenciasRecibidas" inverseEntity="Jugador"/>
+    </entity>
+    <entity name="Bloqueo" representedClassName="Bloqueo">
+        <attribute name="min" attributeType="Integer 16"/>
+        <attribute name="tipo" attributeType="String"/>
+        <relationship name="bloqueado" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Jugador" inverseName="bloqueosRecibidos" inverseEntity="Jugador"/>
+        <relationship name="bloqueador" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Jugador" inverseName="bloqueosRealizados" inverseEntity="Jugador"/>
+    </entity>
+    <entity name="Enceste" representedClassName="Enceste">
+        <attribute name="min" attributeType="Integer 16"/>
+        <attribute name="tipo" attributeType="String"/>
+        <attribute name="valor" attributeType="Integer 16"/>
+        <relationship name="jugador" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Jugador" inverseName="puntos" inverseEntity="Jugador"/>
+    </entity>
     <entity name="Equipo" representedClassName="Equipo">
         <attribute name="local" attributeType="String"/>
         <attribute name="mascota" attributeType="String"/>
         <attribute name="nombre" attributeType="String"/>
+        <attribute name="numeroEquipo" attributeType="Integer 16"/>
         <relationship name="jugadores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Jugador" inverseName="equipo" inverseEntity="Jugador"/>
+        <relationship name="partido" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Partido" inverseName="equipos" inverseEntity="Partido"/>
+    </entity>
+    <entity name="Falta" representedClassName="Falta">
+        <attribute name="min" attributeType="Integer 16"/>
+        <attribute name="tipo" attributeType="String"/>
+        <relationship name="agredido" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Jugador" inverseName="faltasRecibidas" inverseEntity="Jugador"/>
+        <relationship name="agresor" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Jugador" inverseName="faltasRealizadas" inverseEntity="Jugador"/>
+    </entity>
+    <entity name="Ingreso" representedClassName="Ingreso">
+        <attribute name="min" attributeType="Integer 16"/>
+        <attribute name="tipo" attributeType="String"/>
+        <relationship name="ingresa" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Jugador" inverseName="ingresos" inverseEntity="Jugador"/>
+        <relationship name="sale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Jugador" inverseName="salidas" inverseEntity="Jugador"/>
     </entity>
     <entity name="Jugador" representedClassName="Jugador">
         <attribute name="apellido" attributeType="String"/>
         <attribute name="estado" attributeType="String"/>
         <attribute name="nombre" attributeType="String"/>
         <attribute name="numero" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="numeroJugador" attributeType="Integer 16"/>
         <attribute name="posicion" attributeType="String"/>
+        <relationship name="asistenciasRealizadas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Asistencia" inverseName="asistente" inverseEntity="Asistencia"/>
+        <relationship name="asistenciasRecibidas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Asistencia" inverseName="asistido" inverseEntity="Asistencia"/>
+        <relationship name="bloqueosRealizados" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bloqueo" inverseName="bloqueador" inverseEntity="Bloqueo"/>
+        <relationship name="bloqueosRecibidos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bloqueo" inverseName="bloqueado" inverseEntity="Bloqueo"/>
         <relationship name="equipo" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Equipo" inverseName="jugadores" inverseEntity="Equipo"/>
+        <relationship name="faltasRealizadas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Falta" inverseName="agresor" inverseEntity="Falta"/>
+        <relationship name="faltasRecibidas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Falta" inverseName="agredido" inverseEntity="Falta"/>
+        <relationship name="ingresos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingreso" inverseName="ingresa" inverseEntity="Ingreso"/>
+        <relationship name="puntos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Enceste" inverseName="jugador" inverseEntity="Enceste"/>
+        <relationship name="rebotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rebote" inverseName="jugador" inverseEntity="Rebote"/>
+        <relationship name="robosRealizados" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Robo" inverseName="robador" inverseEntity="Robo"/>
+        <relationship name="robosRecibidos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Robo" inverseName="robado" inverseEntity="Robo"/>
+        <relationship name="salidas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingreso" inverseName="sale" inverseEntity="Ingreso"/>
+    </entity>
+    <entity name="Partido" representedClassName="Partido">
+        <attribute name="estado" attributeType="String"/>
+        <attribute name="fecha" attributeType="Date"/>
+        <attribute name="lugar" attributeType="String"/>
+        <attribute name="numeroPartido" attributeType="Integer 16"/>
+        <relationship name="arbitros" toMany="YES" minCount="1" maxCount="4" deletionRule="Nullify" destinationEntity="Arbitro" inverseName="partido" inverseEntity="Arbitro"/>
+        <relationship name="equipos" toMany="YES" minCount="2" maxCount="2" deletionRule="Nullify" destinationEntity="Equipo" inverseName="partido" inverseEntity="Equipo"/>
+    </entity>
+    <entity name="Rebote" representedClassName="Rebote">
+        <attribute name="min" attributeType="Integer 16"/>
+        <attribute name="tipo" attributeType="String"/>
+        <relationship name="jugador" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Jugador" inverseName="rebotes" inverseEntity="Jugador"/>
+    </entity>
+    <entity name="Robo" representedClassName="Robo">
+        <attribute name="min" attributeType="Integer 16"/>
+        <attribute name="tipo" attributeType="String"/>
+        <relationship name="robado" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Jugador" inverseName="robosRecibidos" inverseEntity="Jugador"/>
+        <relationship name="robador" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Jugador" inverseName="robosRealizados" inverseEntity="Jugador"/>
     </entity>
     <elements>
-        <element name="Equipo" positionX="10132" positionY="-11286" width="128" height="105"/>
-        <element name="Jugador" positionX="9882" positionY="-11430" width="128" height="135"/>
+        <element name="Arbitro" positionX="9826" positionY="-11727" width="128" height="105"/>
+        <element name="Asistencia" positionX="10006" positionY="-11637" width="128" height="105"/>
+        <element name="Bloqueo" positionX="9664" positionY="-11310" width="128" height="105"/>
+        <element name="Enceste" positionX="10006" positionY="-11304" width="128" height="105"/>
+        <element name="Equipo" positionX="9666" positionY="-11511" width="128" height="135"/>
+        <element name="Falta" positionX="10006" positionY="-11529" width="128" height="105"/>
+        <element name="Ingreso" positionX="10008" positionY="-11418" width="128" height="105"/>
+        <element name="Jugador" positionX="9828" positionY="-11616" width="128" height="330"/>
+        <element name="Partido" positionX="9666" positionY="-11709" width="128" height="105"/>
+        <element name="Rebote" positionX="9828" positionY="-11286" width="128" height="90"/>
+        <element name="Robo" positionX="10006" positionY="-11751" width="128" height="105"/>
     </elements>
 </model>

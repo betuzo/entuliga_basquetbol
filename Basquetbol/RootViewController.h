@@ -8,14 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "BasquetbolService.h"
-#import "JugadorCellView.h"
+#import "DetailPartidoController.h"
 
 @interface RootViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 {
     BasquetbolService * service;
-    NSMutableArray * equipos;
+    NSMutableArray * partidos;
 }
 
 @property(nonatomic, retain)BasquetbolService * service;
-
 @end

@@ -17,7 +17,9 @@
 @property (nonatomic, retain) NSString * local;
 @property (nonatomic, retain) NSString * mascota;
 @property (nonatomic, retain) NSString * nombre;
+@property (nonatomic, retain) NSNumber * numeroEquipo;
 @property (nonatomic, retain) NSSet *jugadores;
+@property (nonatomic, retain) NSManagedObject *partido;
 @end
 
 @interface Equipo (CoreDataGeneratedAccessors)
@@ -27,4 +29,6 @@
 - (void)addJugadores:(NSSet *)values;
 - (void)removeJugadores:(NSSet *)values;
 - (NSString *) tipoEquipo;
+- (int) puntosTotal;
+
 @end
