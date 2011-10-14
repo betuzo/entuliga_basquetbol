@@ -164,13 +164,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
+    
+     DetailJugadorViewController *detailViewController = [[DetailJugadorViewController alloc] initWithNibName:@"DetailJugadorViewController" bundle:nil];
+     [detailViewController setJugador:[[[[equipos objectAtIndex:indexPath.section] jugadores] allObjects] objectAtIndex:indexPath.row]];
+    [detailViewController setService:service];
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
-     */
+     
 }
 
 - (void)didReceiveMemoryWarning

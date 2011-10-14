@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BasquetbolService.h"
 #import "JugadorCellView.h"
+#import "DetailJugadorViewController.h"
 
 @interface PartidosViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 {
