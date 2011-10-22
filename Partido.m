@@ -2,7 +2,7 @@
 //  Partido.m
 //  Basquetbol
 //
-//  Created by Roberto Olguín Lozano on 12/10/11.
+//  Created by Roberto Olguín Lozano on 16/10/11.
 //  Copyright (c) 2011 Valle del Bit. All rights reserved.
 //
 
@@ -12,10 +12,13 @@
 
 
 @implementation Partido
+
 @dynamic estado;
 @dynamic fecha;
 @dynamic lugar;
 @dynamic numeroPartido;
+@dynamic numeroPeriodos;
+@dynamic minPorPeriodo;
 @dynamic arbitros;
 @dynamic equipos;
 

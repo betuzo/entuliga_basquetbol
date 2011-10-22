@@ -10,7 +10,7 @@
 
 @implementation DetailJugadorCellView
 
-@synthesize imagenEstadistica;
+@synthesize estadistica;
 @synthesize primer;
 @synthesize segundo;
 @synthesize tercer;

@@ -16,4 +16,9 @@
 @dynamic agredido;
 @dynamic agresor;
 
+-(NSString *) description
+{
+    return [NSString stringWithFormat:@"Min: @% - @%", [self min], [self tipo]];
+}
+
 @end

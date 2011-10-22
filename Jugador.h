@@ -99,5 +99,11 @@
 - (void)removeSalidas:(NSSet *)values;
 
 - (int) puntosTotal;
-
+- (int) puntosEntre:(int)inicio Y:(int)fin;
+- (int) asistenciasEntre:(int)inicio Y:(int)fin;
+- (int) bloqueosEntre:(int)inicio Y:(int)fin;
+- (int) rebotesEntre:(int)inicio Y:(int)fin;
+- (int) robosEntre:(int)inicio Y:(int)fin;
+- (int) faltasEntre:(int)inicio Y:(int)fin;
+- (int) minutosEntre:(int)inicio Y:(int)fin;
 @end

@@ -10,6 +10,9 @@
 		4A2814511444B1AC0033B164 /* BasquetbolService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2814501444B1AC0033B164 /* BasquetbolService.m */; };
 		4A28145A144548D90033B164 /* JugadorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A281459144548D90033B164 /* JugadorCell.xib */; };
 		4A28145F1445544F0033B164 /* JugadorCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A28145E1445544F0033B164 /* JugadorCellView.m */; };
+		4A31E14A144FF91300D60A0B /* DetailEstadisticaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A31E148144FF91200D60A0B /* DetailEstadisticaViewController.m */; };
+		4A31E14B144FF91300D60A0B /* DetailEstadisticaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A31E149144FF91200D60A0B /* DetailEstadisticaViewController.xib */; };
+		4A775F46144B2CA0009727DE /* Partido.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A775F45144B2CA0009727DE /* Partido.m */; };
 		4A95C5F71448F28F006887DF /* foto.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4A95C5F61448F28F006887DF /* foto.jpeg */; };
 		4A9F69CA14469FAD003517B7 /* Arbitro.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F69C914469FAD003517B7 /* Arbitro.m */; };
 		4A9F69CE14469FAD003517B7 /* Asistencia.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F69CD14469FAD003517B7 /* Asistencia.m */; };
@@ -18,23 +21,16 @@
 		4A9F69D714469FAE003517B7 /* Bloqueo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F69D614469FAE003517B7 /* Bloqueo.m */; };
 		4A9F69DA14469FAE003517B7 /* Equipo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F69D914469FAE003517B7 /* Equipo.m */; };
 		4A9F69DD14469FAE003517B7 /* Falta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F69DC14469FAE003517B7 /* Falta.m */; };
-		4A9F69E014469FAE003517B7 /* Partido.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F69DF14469FAE003517B7 /* Partido.m */; };
 		4A9F69E314469FAE003517B7 /* Rebote.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F69E214469FAE003517B7 /* Rebote.m */; };
 		4A9F69E614469FAE003517B7 /* Robo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F69E514469FAE003517B7 /* Robo.m */; };
 		4AA786AA1446291700DD8DC1 /* PartidosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA786A81446291700DD8DC1 /* PartidosViewController.m */; };
 		4AA786AB1446291700DD8DC1 /* PartidosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AA786A91446291700DD8DC1 /* PartidosViewController.xib */; };
 		4AB4E22414487D15009EDEE7 /* Enceste.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB4E22314487D15009EDEE7 /* Enceste.m */; };
-		4AC4823D1448B23900509262 /* enceste.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AC4823C1448B23900509262 /* enceste.jpg */; };
+		4AC4823D1448B23900509262 /* Puntos.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AC4823C1448B23900509262 /* Puntos.jpg */; };
 		4AC482401448CD7E00509262 /* DetailJugadorCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC4823F1448CD7E00509262 /* DetailJugadorCellView.m */; };
 		4AC482441448CE3900509262 /* DetailJugadorCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AC482431448CE3900509262 /* DetailJugadorCellView.xib */; };
 		4AC482481448D30D00509262 /* DetailJugadorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC482461448D30D00509262 /* DetailJugadorViewController.m */; };
 		4AC482491448D30D00509262 /* DetailJugadorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AC482471448D30D00509262 /* DetailJugadorViewController.xib */; };
-		4AC482501448D64000509262 /* asistencia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AC4824A1448D63F00509262 /* asistencia.jpg */; };
-		4AC482511448D64000509262 /* bloqueo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AC4824B1448D63F00509262 /* bloqueo.jpg */; };
-		4AC482521448D64000509262 /* falta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AC4824C1448D63F00509262 /* falta.jpg */; };
-		4AC482531448D64000509262 /* ingreso.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC4824D1448D63F00509262 /* ingreso.png */; };
-		4AC482541448D64000509262 /* rebote.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AC4824E1448D64000509262 /* rebote.jpg */; };
-		4AC482551448D64000509262 /* robo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AC4824F1448D64000509262 /* robo.jpg */; };
 		4AE0DC5A1447415000C02F11 /* DetailPartidoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE0DC581447415000C02F11 /* DetailPartidoController.m */; };
 		4AE0DC5B1447415000C02F11 /* DetailPartidoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AE0DC591447415000C02F11 /* DetailPartidoController.xib */; };
 		4AE60CB61445D60B0044F7FA /* movedor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AE60CB11445D60B0044F7FA /* movedor.jpg */; };
@@ -62,6 +58,11 @@
 		4A281459144548D90033B164 /* JugadorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JugadorCell.xib; sourceTree = "<group>"; };
 		4A28145D1445544F0033B164 /* JugadorCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JugadorCellView.h; sourceTree = "<group>"; };
 		4A28145E1445544F0033B164 /* JugadorCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JugadorCellView.m; sourceTree = "<group>"; };
+		4A31E147144FF91200D60A0B /* DetailEstadisticaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailEstadisticaViewController.h; sourceTree = "<group>"; };
+		4A31E148144FF91200D60A0B /* DetailEstadisticaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailEstadisticaViewController.m; sourceTree = "<group>"; };
+		4A31E149144FF91200D60A0B /* DetailEstadisticaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailEstadisticaViewController.xib; sourceTree = "<group>"; };
+		4A775F44144B2CA0009727DE /* Partido.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Partido.h; sourceTree = "<group>"; };
+		4A775F45144B2CA0009727DE /* Partido.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Partido.m; sourceTree = "<group>"; };
 		4A95C5F61448F28F006887DF /* foto.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = foto.jpeg; sourceTree = "<group>"; };
 		4A9F69C814469FAD003517B7 /* Arbitro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arbitro.h; sourceTree = "<group>"; };
 		4A9F69C914469FAD003517B7 /* Arbitro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arbitro.m; sourceTree = "<group>"; };
@@ -77,8 +78,6 @@
 		4A9F69D914469FAE003517B7 /* Equipo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Equipo.m; sourceTree = "<group>"; };
 		4A9F69DB14469FAE003517B7 /* Falta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Falta.h; sourceTree = "<group>"; };
 		4A9F69DC14469FAE003517B7 /* Falta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Falta.m; sourceTree = "<group>"; };
-		4A9F69DE14469FAE003517B7 /* Partido.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Partido.h; sourceTree = "<group>"; };
-		4A9F69DF14469FAE003517B7 /* Partido.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Partido.m; sourceTree = "<group>"; };
 		4A9F69E114469FAE003517B7 /* Rebote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rebote.h; sourceTree = "<group>"; };
 		4A9F69E214469FAE003517B7 /* Rebote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rebote.m; sourceTree = "<group>"; };
 		4A9F69E414469FAE003517B7 /* Robo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Robo.h; sourceTree = "<group>"; };
@@ -88,19 +87,13 @@
 		4AA786A91446291700DD8DC1 /* PartidosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartidosViewController.xib; sourceTree = "<group>"; };
 		4AB4E22214487D15009EDEE7 /* Enceste.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enceste.h; sourceTree = "<group>"; };
 		4AB4E22314487D15009EDEE7 /* Enceste.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enceste.m; sourceTree = "<group>"; };
-		4AC4823C1448B23900509262 /* enceste.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = enceste.jpg; sourceTree = "<group>"; };
+		4AC4823C1448B23900509262 /* Puntos.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Puntos.jpg; sourceTree = "<group>"; };
 		4AC4823E1448CD7E00509262 /* DetailJugadorCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailJugadorCellView.h; sourceTree = "<group>"; };
 		4AC4823F1448CD7E00509262 /* DetailJugadorCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailJugadorCellView.m; sourceTree = "<group>"; };
 		4AC482431448CE3900509262 /* DetailJugadorCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailJugadorCellView.xib; sourceTree = "<group>"; };
 		4AC482451448D30C00509262 /* DetailJugadorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailJugadorViewController.h; sourceTree = "<group>"; };
 		4AC482461448D30D00509262 /* DetailJugadorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailJugadorViewController.m; sourceTree = "<group>"; };
 		4AC482471448D30D00509262 /* DetailJugadorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailJugadorViewController.xib; sourceTree = "<group>"; };
-		4AC4824A1448D63F00509262 /* asistencia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = asistencia.jpg; sourceTree = "<group>"; };
-		4AC4824B1448D63F00509262 /* bloqueo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bloqueo.jpg; sourceTree = "<group>"; };
-		4AC4824C1448D63F00509262 /* falta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = falta.jpg; sourceTree = "<group>"; };
-		4AC4824D1448D63F00509262 /* ingreso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ingreso.png; sourceTree = "<group>"; };
-		4AC4824E1448D64000509262 /* rebote.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rebote.jpg; sourceTree = "<group>"; };
-		4AC4824F1448D64000509262 /* robo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = robo.jpg; sourceTree = "<group>"; };
 		4AE0DC571447415000C02F11 /* DetailPartidoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPartidoController.h; sourceTree = "<group>"; };
 		4AE0DC581447415000C02F11 /* DetailPartidoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailPartidoController.m; sourceTree = "<group>"; };
 		4AE0DC591447415000C02F11 /* DetailPartidoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailPartidoController.xib; sourceTree = "<group>"; };
@@ -148,6 +141,8 @@
 			children = (
 				4AF755A21443B34500163570 /* CoreData.framework */,
 				4AF755991443B14900163570 /* Basquetbol.xcdatamodeld */,
+				4A775F44144B2CA0009727DE /* Partido.h */,
+				4A775F45144B2CA0009727DE /* Partido.m */,
 				4AB4E22214487D15009EDEE7 /* Enceste.h */,
 				4AB4E22314487D15009EDEE7 /* Enceste.m */,
 				4A9F69D214469FAE003517B7 /* Jugador.h */,
@@ -158,8 +153,6 @@
 				4A9F69E514469FAE003517B7 /* Robo.m */,
 				4A9F69E114469FAE003517B7 /* Rebote.h */,
 				4A9F69E214469FAE003517B7 /* Rebote.m */,
-				4A9F69DE14469FAE003517B7 /* Partido.h */,
-				4A9F69DF14469FAE003517B7 /* Partido.m */,
 				4A9F69DB14469FAE003517B7 /* Falta.h */,
 				4A9F69DC14469FAE003517B7 /* Falta.m */,
 				4A9F69D514469FAE003517B7 /* Bloqueo.h */,
@@ -198,17 +191,11 @@
 			isa = PBXGroup;
 			children = (
 				4A95C5F61448F28F006887DF /* foto.jpeg */,
-				4AC4824A1448D63F00509262 /* asistencia.jpg */,
-				4AC4824B1448D63F00509262 /* bloqueo.jpg */,
-				4AC4824C1448D63F00509262 /* falta.jpg */,
-				4AC4824D1448D63F00509262 /* ingreso.png */,
-				4AC4824E1448D64000509262 /* rebote.jpg */,
-				4AC4824F1448D64000509262 /* robo.jpg */,
 				4AC482431448CE3900509262 /* DetailJugadorCellView.xib */,
 				4AC482451448D30C00509262 /* DetailJugadorViewController.h */,
 				4AC482461448D30D00509262 /* DetailJugadorViewController.m */,
 				4AC482471448D30D00509262 /* DetailJugadorViewController.xib */,
-				4AC4823C1448B23900509262 /* enceste.jpg */,
+				4AC4823C1448B23900509262 /* Puntos.jpg */,
 				4AC4823E1448CD7E00509262 /* DetailJugadorCellView.h */,
 				4AC4823F1448CD7E00509262 /* DetailJugadorCellView.m */,
 				4AE60CBC1445D6860044F7FA /* base.png */,
@@ -228,6 +215,9 @@
 				4AF7558E1443B11600163570 /* RootViewController.h */,
 				4AF7558F1443B11600163570 /* RootViewController.m */,
 				4AA786A71446291700DD8DC1 /* PartidosViewController.h */,
+				4A31E147144FF91200D60A0B /* DetailEstadisticaViewController.h */,
+				4A31E148144FF91200D60A0B /* DetailEstadisticaViewController.m */,
+				4A31E149144FF91200D60A0B /* DetailEstadisticaViewController.xib */,
 				4AA786A81446291700DD8DC1 /* PartidosViewController.m */,
 				4AA786A91446291700DD8DC1 /* PartidosViewController.xib */,
 				4AF755911443B11600163570 /* RootViewController.xib */,
@@ -276,6 +266,7 @@
 		4AF7556C1443B11600163570 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Valle del Bit";
 			};
 			buildConfigurationList = 4AF7556F1443B11600163570 /* Build configuration list for PBXProject "Basquetbol" */;
@@ -312,16 +303,11 @@
 				4AE60CBD1445D6860044F7FA /* base.png in Resources */,
 				4AA786AB1446291700DD8DC1 /* PartidosViewController.xib in Resources */,
 				4AE0DC5B1447415000C02F11 /* DetailPartidoController.xib in Resources */,
-				4AC4823D1448B23900509262 /* enceste.jpg in Resources */,
+				4AC4823D1448B23900509262 /* Puntos.jpg in Resources */,
 				4AC482441448CE3900509262 /* DetailJugadorCellView.xib in Resources */,
 				4AC482491448D30D00509262 /* DetailJugadorViewController.xib in Resources */,
-				4AC482501448D64000509262 /* asistencia.jpg in Resources */,
-				4AC482511448D64000509262 /* bloqueo.jpg in Resources */,
-				4AC482521448D64000509262 /* falta.jpg in Resources */,
-				4AC482531448D64000509262 /* ingreso.png in Resources */,
-				4AC482541448D64000509262 /* rebote.jpg in Resources */,
-				4AC482551448D64000509262 /* robo.jpg in Resources */,
 				4A95C5F71448F28F006887DF /* foto.jpeg in Resources */,
+				4A31E14B144FF91300D60A0B /* DetailEstadisticaViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,13 +332,14 @@
 				4A9F69D714469FAE003517B7 /* Bloqueo.m in Sources */,
 				4A9F69DA14469FAE003517B7 /* Equipo.m in Sources */,
 				4A9F69DD14469FAE003517B7 /* Falta.m in Sources */,
-				4A9F69E014469FAE003517B7 /* Partido.m in Sources */,
 				4A9F69E314469FAE003517B7 /* Rebote.m in Sources */,
 				4A9F69E614469FAE003517B7 /* Robo.m in Sources */,
 				4AE0DC5A1447415000C02F11 /* DetailPartidoController.m in Sources */,
 				4AB4E22414487D15009EDEE7 /* Enceste.m in Sources */,
 				4AC482401448CD7E00509262 /* DetailJugadorCellView.m in Sources */,
 				4AC482481448D30D00509262 /* DetailJugadorViewController.m in Sources */,
+				4A775F46144B2CA0009727DE /* Partido.m in Sources */,
+				4A31E14A144FF91300D60A0B /* DetailEstadisticaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +421,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Basquetbol/Basquetbol-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Basquetbol/Basquetbol-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -445,6 +433,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Basquetbol/Basquetbol-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Basquetbol/Basquetbol-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

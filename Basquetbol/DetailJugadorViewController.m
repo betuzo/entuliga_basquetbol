@@ -41,7 +41,6 @@
 {
     [self setTitle:[[jugador equipo] nombre]];
     [super viewDidLoad];
-    estadisticas = [[NSArray alloc] initWithObjects:@"Minutos", @"Puntos", @"Faltas", @"Rebotes", @"Bloqueos", @"Asistencias", @"Robos", nil];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -81,20 +80,40 @@
         }
     }
     
-    cell.imagenEstadistica.image = nil;    
-    cell.primer.text = @"4";
-    cell.segundo.text = @"4";
-    cell.tercer.text = @"2";
-    cell.cuarto.text = @"16";
-    cell.total.text = @"16";
+    UILongPressGestureRecognizer * longPress = [[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longHelpHappened:)] autorelease];
+    longPress.minimumPressDuration = 1;
+    [cell addGestureRecognizer:longPress];
+    
+    cell.estadistica.text = [service getNombreEstadisticaByRow:indexPath.row];
+    cell.primer.text = [NSString stringWithFormat:@"%i", [service getEstadisticasByRow:indexPath.row byPeriodo:1 atJuego:jugador]];
+    cell.segundo.text = [NSString stringWithFormat:@"%i", [service getEstadisticasByRow:indexPath.row byPeriodo:2 atJuego:jugador]];
+    cell.tercer.text = [NSString stringWithFormat:@"%i", [service getEstadisticasByRow:indexPath.row byPeriodo:3 atJuego:jugador]];
+    cell.cuarto.text = [NSString stringWithFormat:@"%i", [service getEstadisticasByRow:indexPath.row byPeriodo:4 atJuego:jugador]];
+    cell.total.text = [NSString stringWithFormat:@"%i", [service getEstadisticasByRow:indexPath.row byPeriodo:0 atJuego:jugador]];
+    cell.tag = indexPath.row;
     // Configure the cell.
     return cell;
 
 }
 
+-(void) longHelpHappened:(UIGestureRecognizer *) recognizer
+{
+    if ([recognizer state] == UIGestureRecognizerStateBegan)
+    {
+        DetailEstadisticaViewController *detailViewController = [[DetailEstadisticaViewController alloc] initWithNibName:@"DetailEstadisticaViewController" bundle:nil];
+        // ...
+        [detailViewController setService:service];
+        [detailViewController setEstadistica:[service getNombreEstadisticaByRow:[[recognizer view] tag]]];
+        [detailViewController setJugador:jugador];
+        [detailViewController setEstadisticas:[service estadisticasPorJugador:jugador PorTipo:[service getNombreEstadisticaByRow:[[recognizer view] tag]]]];
+        [self.navigationController pushViewController:detailViewController animated:YES];
+        [detailViewController release];
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [estadisticas count];
+    return [[service estadisticas] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -113,7 +132,6 @@
 
 -(void) dealloc
 {   
-    [estadisticas dealloc];
     [super dealloc];
 }
 

@@ -95,9 +95,9 @@
     
     cell.labelNombre.text = [[[NSString alloc] initWithFormat:@"%@ - %@", tempJugador.numero, tempJugador.nombre] autorelease]; // ¿Esta bien el autorelease?
     cell.labelEstado.text = tempJugador.estado;
-    cell.labelPuntos.text = @"4 p";
-    cell.labelFaltas.text = @"2 f";
-    cell.labelMinutos.text = @"16 m";
+    cell.labelPuntos.text = [NSString stringWithFormat:@"%i PTS", [service getEstadisticasByRow:1 byPeriodo:0 atJuego:tempJugador]];
+    cell.labelFaltas.text = [NSString stringWithFormat:@"%i FTS", [service getEstadisticasByRow:2 byPeriodo:0 atJuego:tempJugador]];
+    cell.labelMinutos.text = [NSString stringWithFormat:@"%i MIN", [service getEstadisticasByRow:0 byPeriodo:0 atJuego:tempJugador]];
     cell.imageView.image = [service getImageByPosicion:tempJugador.posicion];
     // Configure the cell.
     return cell;

@@ -10,12 +10,12 @@
 #import "BasquetbolService.h"
 #import "Jugador.h"
 #import "DetailJugadorCellView.h"
+#import "DetailEstadisticaViewController.h"
 
 @interface DetailJugadorViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {
     BasquetbolService * service;
     Jugador * jugador;
-    NSArray * estadisticas;
     UIImageView * imagenJugador; 
     UILabel * numero;
     UILabel * nombre;
@@ -34,4 +34,5 @@
 - (void) setJugador:(Jugador *) elJugador;
 - (Jugador *) jugador;
 - (void)showDetailJugador;
+
 @end

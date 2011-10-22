@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Arbitro" representedClassName="Arbitro">
         <attribute name="apellido" attributeType="String"/>
         <attribute name="nombre" attributeType="String"/>
@@ -70,7 +70,9 @@
         <attribute name="estado" attributeType="String"/>
         <attribute name="fecha" attributeType="Date"/>
         <attribute name="lugar" attributeType="String"/>
+        <attribute name="minPorPeriodo" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="numeroPartido" attributeType="Integer 16"/>
+        <attribute name="numeroPeriodos" attributeType="Integer 16" syncable="YES"/>
         <relationship name="arbitros" toMany="YES" minCount="1" maxCount="4" deletionRule="Nullify" destinationEntity="Arbitro" inverseName="partido" inverseEntity="Arbitro"/>
         <relationship name="equipos" toMany="YES" minCount="2" maxCount="2" deletionRule="Nullify" destinationEntity="Equipo" inverseName="partido" inverseEntity="Equipo"/>
     </entity>
@@ -94,7 +96,7 @@
         <element name="Falta" positionX="10006" positionY="-11529" width="128" height="105"/>
         <element name="Ingreso" positionX="10008" positionY="-11418" width="128" height="105"/>
         <element name="Jugador" positionX="9828" positionY="-11616" width="128" height="330"/>
-        <element name="Partido" positionX="9666" positionY="-11709" width="128" height="105"/>
+        <element name="Partido" positionX="9666" positionY="-11709" width="128" height="165"/>
         <element name="Rebote" positionX="9828" positionY="-11286" width="128" height="90"/>
         <element name="Robo" positionX="10006" positionY="-11751" width="128" height="105"/>
     </elements>

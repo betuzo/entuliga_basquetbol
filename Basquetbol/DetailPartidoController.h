@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Partido.h"
+#import "Jugador.h"
 #import "BasquetbolService.h"
 #import "PartidosViewController.h"
 

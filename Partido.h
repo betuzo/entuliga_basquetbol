@@ -2,7 +2,7 @@
 //  Partido.h
 //  Basquetbol
 //
-//  Created by Roberto Olguín Lozano on 12/10/11.
+//  Created by Roberto Olguín Lozano on 16/10/11.
 //  Copyright (c) 2011 Valle del Bit. All rights reserved.
 //
 
@@ -11,13 +11,14 @@
 
 @class Arbitro, Equipo;
 
-@interface Partido : NSManagedObject {
-@private
-}
+@interface Partido : NSManagedObject
+
 @property (nonatomic, retain) NSString * estado;
 @property (nonatomic, retain) NSDate * fecha;
 @property (nonatomic, retain) NSString * lugar;
 @property (nonatomic, retain) NSNumber * numeroPartido;
+@property (nonatomic, retain) NSNumber * numeroPeriodos;
+@property (nonatomic, retain) NSNumber * minPorPeriodo;
 @property (nonatomic, retain) NSSet *arbitros;
 @property (nonatomic, retain) NSSet *equipos;
 @end
@@ -33,6 +34,7 @@
 - (void)removeEquiposObject:(Equipo *)value;
 - (void)addEquipos:(NSSet *)values;
 - (void)removeEquipos:(NSSet *)values;
+
 - (NSString *)detailPartido;
 - (id)getEquipoLocal:(BOOL) isLocal;
 - (NSString *) detailLongFecha;

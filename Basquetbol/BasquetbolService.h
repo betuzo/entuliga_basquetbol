@@ -24,23 +24,31 @@
     NSManagedObjectModel * managedObjectModel;
     NSPersistentStoreCoordinator * persistentStoreCoordinator; 
     NSManagedObjectContext * managedObjectContext;
-    
-    NSMutableArray * partidos;
-    
-    //NSMutableArray * jugadores;
-    //NSMutableArray * equipos;
+    NSArray * estadisticas;
+    NSArray * valorTipoEnceste;
 }
 
 -(void)initializePersistanceStoreCoordinator;
 -(void)initializeManagedObjectContext;
 -(void)initializeManageObjectModel;
 -(void)inicializeCoreData;
+- (void) salvarContexto;
 
 -(UIImage *)getImageByPosicion:(NSString *)posicion;
+-(UIImage *)getImageByRow:(int)row;
 -(void) initializeDatosTest;
 
 -(NSMutableArray *) partidos;
--(void)setPartidos:(NSMutableArray *) losPartidos;
+-(NSArray *)estadisticas;
 
 -(NSMutableArray *) getPartidosOfContext;
+
+-(NSArray *)estadisticas;
+-(UIImage *)getImageByRow:(int) row;
+-(int) getEstadisticasByRow:(int) row byPeriodo:(int) periodo atJuego:(Jugador *) jugador;
+-(NSString *)getNombreEstadisticaByRow:(int) row;
+-(NSArray *) informacionDeEstadistica:(NSString *) estadistica paraJugador:(Jugador *) jugador;
+-(int)valorPorTipoEnceste:(NSString *) tipoEnceste;
+- (NSArray *)estadisticasPorJugador:(Jugador *) jugador PorTipo:(NSString *) tipoEstadistica;
+- (void)registraEstadistica:(NSString *) estadistica paraJugador:(Jugador *) jugador enMinuto:(NSString *) min deTipo:(NSString *) tipoEsta involucradoAJugador:(Jugador *) involJugador;
 @end

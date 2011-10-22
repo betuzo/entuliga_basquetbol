@@ -16,4 +16,9 @@
 @dynamic bloqueado;
 @dynamic bloqueador;
 
+-(NSString *) description
+{
+    return [NSString stringWithFormat:@"Min: @% - @%", [self min], [self tipo]];
+}
+
 @end

@@ -12,15 +12,14 @@
 
 @interface DetailJugadorCellView : UITableViewCell
 {
-
-    UIImageView * imagenEstadistica; 
+    UILabel * estadistica;
     UILabel * primer;
     UILabel * segundo;
     UILabel * tercer;
     UILabel * cuarto;
     UILabel * total;
 }
-@property(nonatomic, retain)IBOutlet UIImageView * imagenEstadistica;
+@property(nonatomic, retain)IBOutlet UILabel * estadistica;
 @property(nonatomic, retain)IBOutlet UILabel * primer;
 @property(nonatomic, retain)IBOutlet UILabel * segundo;
 @property(nonatomic, retain)IBOutlet UILabel * tercer;
