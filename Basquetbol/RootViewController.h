@@ -11,10 +11,5 @@
 #import "DetailPartidoController.h"
 
 @interface RootViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
-{
-    BasquetbolService * service;
-    NSMutableArray * partidos;
-}
 
-@property(nonatomic, retain)BasquetbolService * service;
 @end

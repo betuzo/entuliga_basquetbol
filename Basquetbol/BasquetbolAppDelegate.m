@@ -13,16 +13,14 @@
 
 @synthesize window = _window;
 @synthesize navigationController = _navigationController;
-@synthesize service;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    serviceBasquetbol = [[[BasquetbolService alloc] init] autorelease]; 
     // Override point for customization after application launch.
     // Add the navigation controller's view to the window and display.
+    [BasquetbolService inicializeCoreData];
+    [BasquetbolService initializeDatosEstadisticas];
     self.window.rootViewController = self.navigationController;
-    id controller = [self.navigationController.viewControllers objectAtIndex:0];
-    [controller setService:serviceBasquetbol];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -70,7 +68,6 @@
 {
     [_window release];
     [_navigationController release];
-    [serviceBasquetbol release];
     [super dealloc];
 }
 

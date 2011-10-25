@@ -14,8 +14,6 @@
 
 @interface DetailJugadorViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {
-    BasquetbolService * service;
-    Jugador * jugador;
     UIImageView * imagenJugador; 
     UILabel * numero;
     UILabel * nombre;
@@ -23,7 +21,6 @@
     UILabel * posicion;
     UILabel * estado;
 }
-@property(nonatomic, retain)BasquetbolService * service;
 @property(nonatomic, retain)IBOutlet UIImageView * imagenJugador;
 @property(nonatomic, retain)IBOutlet UILabel * numero;
 @property(nonatomic, retain)IBOutlet UILabel * nombre;
@@ -31,8 +28,7 @@
 @property(nonatomic, retain)IBOutlet UILabel * posicion;
 @property(nonatomic, retain)IBOutlet UILabel * estado;
 
-- (void) setJugador:(Jugador *) elJugador;
-- (Jugador *) jugador;
+
 - (void)showDetailJugador;
 
 @end

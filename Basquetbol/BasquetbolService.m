@@ -10,35 +10,79 @@
 
 @implementation BasquetbolService
 
-- (id)init
+static NSManagedObjectModel * managedObjectModel = nil;
+static NSPersistentStoreCoordinator * persistentStoreCoordinator = nil;
+static NSManagedObjectContext * managedObjectContext = nil;
+static NSArray * estadisticas = nil;
+static NSArray * valorTipoEnceste = nil;
+static NSArray * partidos = nil;
+static Partido * partido = nil;
+static Jugador * jugador = nil;
+
++ (void) setPartido:(Partido *) elPartido
 {
-    self = [super init];
-    if (self) {
-        [self inicializeCoreData];
-        estadisticas = [[NSArray alloc] initWithObjects:
-                        [[NSArray alloc] initWithObjects:@"MIN", @"PTS", @"FTS", @"RBT", @"BLQ", @"AST", @"RBS", nil],
-                        [[NSArray alloc] initWithObjects:@"Si", @"No", @"Si", @"No", @"Si", @"Si", @"Si", nil],
-                        [[NSArray alloc] initWithObjects:@"Si", @"No", @"Si", @"No", @"No", @"No", @"No", nil],
-                        [[NSArray alloc] initWithObjects:
-                            [[NSArray alloc] initWithObjects:@"TITULAR", @"CANCHA", @"LESION", @"FALTAS", @"EXPULSADO", nil], 
-                            [[NSArray alloc] initWithObjects:@"NORMAL", @"DE TRES", @"LINEA", nil],
-                            [[NSArray alloc] initWithObjects:@"NORMAL", @"TECNICA", @"GRAVE", nil],
-                            [[NSArray alloc] initWithObjects:@"DEFENSIVO", @"OFENSIVO", nil], 
-                            [[NSArray alloc] initWithObjects:@"NORMAL", nil], 
-                            [[NSArray alloc] initWithObjects:@"NORMAL", nil], 
-                            [[NSArray alloc] initWithObjects:@"NORMAL", nil], 
-                            nil],
-                        nil];
-        valorTipoEnceste = [[NSArray alloc] initWithObjects:
-                                [[NSArray alloc] initWithObjects:@"NORMAL", @"DE TRES", @"LINEA", nil],
-                                [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:1], nil],
-                                nil];
-    }
-    
-    return self;
+    partido = elPartido;
 }
 
-- (NSArray *)estadisticasPorJugador:(Jugador *) jugador PorTipo:(NSString *) tipoEstadistica
++ (void) setJugador:(Jugador *) elJugador
+{
+    jugador = elJugador;
+}
+
++ (Partido *) partido
+{
+    return partido;
+}
+
++ (NSArray *) estadisticas
+{
+    return estadisticas;
+}
+
++ (NSArray *) partidos
+{
+    if([partidos count]==0)
+    {
+        partidos = [[BasquetbolService getPartidosOfContext] retain];
+        if([partidos count]==0)
+        {
+            [BasquetbolService initializeDatosTest];
+            partidos = [[BasquetbolService getPartidosOfContext] retain];
+        }
+    }
+    
+    return partidos;
+}
+
++ (Jugador *) jugador
+{
+    return jugador;
+}
+
++ (void)initializeDatosEstadisticas
+{
+    [BasquetbolService inicializeCoreData];
+        estadisticas = [[NSArray alloc] initWithObjects:
+                        [[[NSArray alloc] initWithObjects:@"MIN", @"PTS", @"FTS", @"RBT", @"BLQ", @"AST", @"RBS", nil] autorelease],
+                        [[[NSArray alloc] initWithObjects:@"Si", @"No", @"Si", @"No", @"Si", @"Si", @"Si", nil] autorelease],
+                        [[[NSArray alloc] initWithObjects:@"Si", @"No", @"Si", @"No", @"No", @"No", @"No", nil] autorelease],
+                        [[[NSArray alloc] initWithObjects:
+                            [[[NSArray alloc] initWithObjects:@"TITULAR", @"CANCHA", @"LESION", @"FALTAS", @"EXPULSADO", nil] autorelease], 
+                            [[[NSArray alloc] initWithObjects:@"NORMAL", @"DE TRES", @"LINEA", nil] autorelease],
+                            [[[NSArray alloc] initWithObjects:@"NORMAL", @"TECNICA", @"GRAVE", nil] autorelease],
+                            [[[NSArray alloc] initWithObjects:@"DEFENSIVO", @"OFENSIVO", nil] autorelease], 
+                            [[[NSArray alloc] initWithObjects:@"NORMAL", nil] autorelease], 
+                         [[[NSArray alloc] initWithObjects:@"NORMAL", nil] autorelease], 
+                            [[[NSArray alloc] initWithObjects:@"NORMAL", nil] autorelease], 
+                            nil] autorelease],
+                        nil];
+        valorTipoEnceste = [[NSArray alloc] initWithObjects:
+                                [[[NSArray alloc] initWithObjects:@"NORMAL", @"DE TRES", @"LINEA", nil] autorelease],
+                                [[[NSArray alloc] initWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:1], nil] autorelease],
+                                nil];
+}
+
++(NSArray *)estadisticasPorJugador:(Jugador *) jugador PorTipo:(NSString *) tipoEstadistica
 {
     if ([tipoEstadistica isEqualToString:@"MIN"]) 
         return [[jugador ingresos]allObjects];
@@ -59,7 +103,7 @@
     
 }
 
--(int)valorPorTipoEnceste:(NSString *) tipoEnceste
++(int)valorPorTipoEnceste:(NSString *) tipoEnceste
 {
     int valor = 0;
     for (int tipo = 0; tipo < [[valorTipoEnceste objectAtIndex:0] count]; tipo++) {
@@ -71,12 +115,11 @@
     return valor;
 }
 
--(NSArray *) informacionDeEstadistica:(NSString *) estadistica paraJugador:(Jugador *) jugador
++(NSArray *) informacionDeEstadistica:(NSString *) estadistica paraJugador:(Jugador *) jugador
 {
     
     NSMutableArray * minutos = [[NSMutableArray alloc] init];
-    NSArray * tipos;
-    NSMutableArray * jugadores = [[NSMutableArray alloc] init];
+    NSArray * tipos = nil;
     int banderaQuitaJugador = 0;
     int banderaJugadorNULL = 0;
     
@@ -99,15 +142,16 @@
         }
     }
     
-    jugadores = [[[[jugador equipo] jugadores] allObjects] mutableCopy];
-    [jugadores removeObject:jugador];
-    if (banderaJugadorNULL==1)
-        [jugadores addObject:@"NINGUNO"];
         
     NSArray * informacionDeEstadistica;
     
     if (banderaQuitaJugador==1)
     {
+        NSMutableArray * jugadores;
+        jugadores = [[[[[jugador equipo] jugadores] allObjects] mutableCopy] autorelease];
+        [jugadores removeObject:jugador];
+        if (banderaJugadorNULL==1)
+            [jugadores addObject:@"NINGUNO"];
         informacionDeEstadistica = [[[NSArray alloc] initWithObjects:minutos, tipos, jugadores, nil] autorelease];
     }
     else
@@ -115,32 +159,13 @@
         informacionDeEstadistica = [[[NSArray alloc] initWithObjects:minutos, tipos, nil] autorelease];
     }
     
-    [partidoTmp release];
     [minutos release];
-    [jugadores release];
-    [tipos  release];
     
     return informacionDeEstadistica;
 }
 
--(NSArray *)estadisticas
-{
-    return [estadisticas objectAtIndex:0];
-}
 
--(NSMutableArray *) partidos
-{
-    NSMutableArray * partidos = [self getPartidosOfContext];
-    if([partidos count]==0)
-    {
-        [self initializeDatosTest];
-        partidos = [self getPartidosOfContext];
-    }
-    
-    return partidos;
-}
-
-- (void)dealloc
++ (void)dealloc
 {
     [estadisticas release];
     [managedObjectModel release];
@@ -149,14 +174,14 @@
     [super dealloc];
 }
 
--(void)inicializeCoreData
++(void)inicializeCoreData
 {
-    [self initializeManageObjectModel];
-    [self initializePersistanceStoreCoordinator];
-    [self initializeManagedObjectContext];    
+    [BasquetbolService initializeManageObjectModel];
+    [BasquetbolService initializePersistanceStoreCoordinator];
+    [BasquetbolService initializeManagedObjectContext];    
 }
 
--(void)initializeManageObjectModel
++(void)initializeManageObjectModel
 {
     if(!managedObjectModel)
     {
@@ -165,12 +190,12 @@
     }
 }
 
-- (NSURL *)applicationDirectory
++ (NSURL *)applicationDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains: NSUserDomainMask] lastObject];
 }
 
--(void) initializePersistanceStoreCoordinator
++(void) initializePersistanceStoreCoordinator
 {
     
     if(!persistentStoreCoordinator)
@@ -189,7 +214,7 @@
     }
 }
 
--(void)initializeManagedObjectContext
++(void)initializeManagedObjectContext
 {
     
     if(!managedObjectContext)
@@ -200,7 +225,7 @@
     }
 }
 
--(int) getEstadisticasByRow:(int) row byPeriodo:(int) periodo atJuego:(Jugador *) jugador
++(int) getEstadisticasByRow:(int) row byPeriodo:(int) periodo atJuego:(Jugador *) jugador
 {
     int totalEstadisticas = 0;
     Partido * partido = (Partido *) [[jugador equipo] partido];
@@ -242,17 +267,17 @@
     return totalEstadisticas;
 }
 
--(UIImage *)getImageByRow:(int) row
++(UIImage *)getImageByRow:(int) row
 {
     return [UIImage imageNamed:[[[estadisticas objectAtIndex:0] allObjects] objectAtIndex:row]];
 }
 
--(NSString *)getNombreEstadisticaByRow:(int) row
++(NSString *)getNombreEstadisticaByRow:(int) row
 {
     return [[[estadisticas objectAtIndex:0] allObjects] objectAtIndex:row];
 }
 
--(UIImage *)getImageByPosicion:(NSString *)posicion
++(UIImage *)getImageByPosicion:(NSString *)posicion
 {
     if([posicion isEqualToString:@"Movedor"])
     {
@@ -275,10 +300,10 @@
 }
 
 
--(NSMutableArray *) getPartidosOfContext
++(NSArray *) getPartidosOfContext
 {
     NSError * error;
-    NSMutableArray * partidos;
+    NSArray * partidos;
     
     NSEntityDescription * entity = [NSEntityDescription entityForName:@"Partido" inManagedObjectContext:managedObjectContext];
     NSFetchRequest * request = [[NSFetchRequest alloc] init];
@@ -287,7 +312,7 @@
     NSSortDescriptor * sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"fecha" ascending:NO];
     [request setSortDescriptors:[NSArray arrayWithObject: sortDescriptor]];
     
-    partidos = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+    partidos = [[[managedObjectContext executeFetchRequest:request error:&error] mutableCopy] autorelease];
     
     NSLog(@"%i", [partidos count]);
     
@@ -299,7 +324,7 @@
     return partidos;
 }
 
-- (void)registraEstadistica:(NSString *) estadistica paraJugador:(Jugador *) jugador enMinuto:(NSString *) min deTipo:(NSString *) tipoEsta involucradoAJugador:(Jugador *) involJugador
++ (void)registraEstadistica:(NSString *) estadistica paraJugador:(Jugador *) jugador enMinuto:(NSString *) min deTipo:(NSString *) tipoEsta involucradoAJugador:(Jugador *) involJugador
 {
     if ([[involJugador description] isEqualToString:@"NINGUNO"]) {
         involJugador = nil;
@@ -307,7 +332,7 @@
     NSNumber * minuto = [NSNumber numberWithInt:[min intValue]];
     if ([estadistica isEqualToString:@"MIN"])
     {
-        Ingreso * ingreso = [[NSEntityDescription insertNewObjectForEntityForName:@"Ingreso" inManagedObjectContext:managedObjectContext]autorelease];
+        Ingreso * ingreso = [NSEntityDescription insertNewObjectForEntityForName:@"Ingreso" inManagedObjectContext:managedObjectContext];
         [ingreso setMin:minuto];
         [ingreso setTipo:tipoEsta];
         [ingreso setSale:jugador];
@@ -317,7 +342,7 @@
     }
     if ([estadistica isEqualToString:@"PTS"]) 
     {
-        Enceste * enceste = [[NSEntityDescription insertNewObjectForEntityForName:@"Enceste" inManagedObjectContext:managedObjectContext]autorelease];
+        Enceste * enceste = [NSEntityDescription insertNewObjectForEntityForName:@"Enceste" inManagedObjectContext:managedObjectContext];
         [enceste setMin:minuto];
         [enceste setTipo:tipoEsta];
         [enceste setValor:[NSNumber numberWithInt:[self valorPorTipoEnceste:tipoEsta]]];
@@ -326,7 +351,7 @@
     }
     if ([estadistica isEqualToString:@"FTS"]) 
     {
-        Falta * falta = [[NSEntityDescription insertNewObjectForEntityForName:@"Falta" inManagedObjectContext:managedObjectContext]autorelease];
+        Falta * falta = [NSEntityDescription insertNewObjectForEntityForName:@"Falta" inManagedObjectContext:managedObjectContext];
         [falta setMin:minuto];
         [falta setTipo:tipoEsta];
         [falta setAgresor:jugador];
@@ -336,7 +361,7 @@
     }
     if ([estadistica isEqualToString:@"RBT"]) 
     {
-        Rebote * rebote = [[NSEntityDescription insertNewObjectForEntityForName:@"Rebote" inManagedObjectContext:managedObjectContext]autorelease];
+        Rebote * rebote = [NSEntityDescription insertNewObjectForEntityForName:@"Rebote" inManagedObjectContext:managedObjectContext];
         [rebote setMin:minuto];
         [rebote setTipo:tipoEsta];
         [rebote setJugador:jugador];
@@ -344,7 +369,7 @@
     }
     if ([estadistica isEqualToString:@"BLQ"]) 
     {
-        Bloqueo * bloqueo = [[NSEntityDescription insertNewObjectForEntityForName:@"Bloqueo" inManagedObjectContext:managedObjectContext]autorelease];
+        Bloqueo * bloqueo = [NSEntityDescription insertNewObjectForEntityForName:@"Bloqueo" inManagedObjectContext:managedObjectContext];
         [bloqueo setMin:minuto];
         [bloqueo setTipo:tipoEsta];
         [bloqueo setBloqueador:jugador];
@@ -354,7 +379,7 @@
     }
     if ([estadistica isEqualToString:@"AST"]) 
     {
-        Asistencia * asistencia = [[NSEntityDescription insertNewObjectForEntityForName:@"Asistencia" inManagedObjectContext:managedObjectContext]autorelease];
+        Asistencia * asistencia = [NSEntityDescription insertNewObjectForEntityForName:@"Asistencia" inManagedObjectContext:managedObjectContext];
         [asistencia setMin:minuto];
         [asistencia setTipo:tipoEsta];
         [asistencia setAsistente:jugador];
@@ -365,7 +390,7 @@
     if ([estadistica isEqualToString:@"RBS"]) 
     {
         
-        Robo * robo = [[NSEntityDescription insertNewObjectForEntityForName:@"Robo" inManagedObjectContext:managedObjectContext]autorelease];
+        Robo * robo = [NSEntityDescription insertNewObjectForEntityForName:@"Robo" inManagedObjectContext:managedObjectContext];
         [robo setMin:minuto];
         [robo setTipo:tipoEsta];
         [robo setRobador:jugador];
@@ -378,23 +403,23 @@
     
 }
 
--(void) initializeDatosTest
++(void) initializeDatosTest
 {
-    Equipo * local = [[NSEntityDescription insertNewObjectForEntityForName:@"Equipo" inManagedObjectContext:managedObjectContext] autorelease];
+    Equipo * local = [NSEntityDescription insertNewObjectForEntityForName:@"Equipo" inManagedObjectContext:managedObjectContext];
     
     [local setNombre:@"Fox"];
     [local setMascota:@"Zorros"];
     [local setLocal:@"Si"];
     [local setNumeroEquipo:[NSNumber numberWithInt:7]];
     
-    Equipo * visita = [[NSEntityDescription insertNewObjectForEntityForName:@"Equipo" inManagedObjectContext:managedObjectContext]autorelease];
+    Equipo * visita = [NSEntityDescription insertNewObjectForEntityForName:@"Equipo" inManagedObjectContext:managedObjectContext];
     
     [visita setNombre:@"Cavaliers"];
     [visita setMascota:@"Carro"];
     [visita setLocal:@"No"];
     [visita setNumeroEquipo:[NSNumber numberWithInt:6]];
     
-    Jugador * jugador1 = [[NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext]autorelease];
+    Jugador * jugador1 = [NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext];
     
     [jugador1 setNombre:@"Betuzo"];
     [jugador1 setApellido:@"Olguin"];
@@ -404,7 +429,7 @@
     [jugador1 setNumeroJugador:[NSNumber numberWithInt:1001]];
     [jugador1 setEquipo:local];
     
-    Jugador * jugador2 = [[NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext]autorelease];
+    Jugador * jugador2 = [NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext];
     
     [jugador2 setNombre:@"Ruben"];
     [jugador2 setApellido:@"Barcenas"];
@@ -414,7 +439,7 @@
     [jugador2 setNumeroJugador:[NSNumber numberWithInt:1002]];
     [jugador2 setEquipo:local];
     
-    Jugador * jugador3 = [[NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext]autorelease];
+    Jugador * jugador3 = [NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext];
     
     [jugador3 setNombre:@"Eduardo"];
     [jugador3 setApellido:@"Cruz"];
@@ -424,7 +449,7 @@
     [jugador3 setNumeroJugador:[NSNumber numberWithInt:1003]];
     [jugador3 setEquipo:local];
     
-    Jugador * jugador4 = [[NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext]autorelease];
+    Jugador * jugador4 = [NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext];
     
     [jugador4 setNombre:@"Hasiel"];
     [jugador4 setApellido:@"Lopez"];
@@ -434,7 +459,7 @@
     [jugador4 setNumeroJugador:[NSNumber numberWithInt:1004]];
     [jugador4 setEquipo:local];
     
-    Jugador * jugador5 = [[NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext]autorelease];
+    Jugador * jugador5 = [NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext];
     
     [jugador5 setNombre:@"Raul"];
     [jugador5 setApellido:@"Guerrero"];
@@ -444,7 +469,7 @@
     [jugador5 setNumeroJugador:[NSNumber numberWithInt:1005]];
     [jugador5 setEquipo:local];
     
-    Jugador * jugador6 = [[NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext]autorelease];
+    Jugador * jugador6 = [NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext];
     
     [jugador6 setNombre:@"Joel"];
     [jugador6 setApellido:@"Andrade"];
@@ -454,7 +479,7 @@
     [jugador6 setNumeroJugador:[NSNumber numberWithInt:2001]];
     [jugador6 setEquipo:visita];
     
-    Jugador * jugador7 = [[NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext]autorelease];
+    Jugador * jugador7 = [NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext];
     
     [jugador7 setNombre:@"Gerardo"];
     [jugador7 setApellido:@"Flores"];
@@ -464,7 +489,7 @@
     [jugador7 setNumeroJugador:[NSNumber numberWithInt:2002]];
     [jugador7 setEquipo:visita];
     
-    Jugador * jugador8 = [[NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext]autorelease];
+    Jugador * jugador8 = [NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext];
     
     [jugador8 setNombre:@"Isidro"];
     [jugador8 setApellido:@"Licona"];
@@ -474,7 +499,7 @@
     [jugador8 setNumeroJugador:[NSNumber numberWithInt:2003]];
     [jugador8 setEquipo:visita];
     
-    Jugador * jugador9 = [[NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext]autorelease];
+    Jugador * jugador9 = [NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext];
     
     [jugador9 setNombre:@"Mario"];
     [jugador9 setApellido:@"Rivera"];
@@ -484,7 +509,7 @@
     [jugador9 setNumeroJugador:[NSNumber numberWithInt:2004]];
     [jugador9 setEquipo:visita];
     
-    Jugador * jugador10 = [[NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext]autorelease];
+    Jugador * jugador10 = [NSEntityDescription insertNewObjectForEntityForName:@"Jugador" inManagedObjectContext:managedObjectContext];
     
     [jugador10 setNombre:@"Luis"];
     [jugador10 setApellido:@"Lezama"];
@@ -494,35 +519,35 @@
     [jugador10 setNumeroJugador:[NSNumber numberWithInt:2005]];
     [jugador10 setEquipo:visita];
     
-    Arbitro * arbitro1 = [[NSEntityDescription insertNewObjectForEntityForName:@"Arbitro" inManagedObjectContext:managedObjectContext] autorelease];
+    Arbitro * arbitro1 = [NSEntityDescription insertNewObjectForEntityForName:@"Arbitro" inManagedObjectContext:managedObjectContext];
     
     [arbitro1 setNumeroArbitro:[NSNumber numberWithInt:705]];
     [arbitro1 setNombre:@"Joel"];
     [arbitro1 setApellido:@"Campos"];
     [arbitro1 setUbicacion:@"Centro"];
     
-    Arbitro * arbitro2 = [[NSEntityDescription insertNewObjectForEntityForName:@"Arbitro" inManagedObjectContext:managedObjectContext]autorelease];
+    Arbitro * arbitro2 = [NSEntityDescription insertNewObjectForEntityForName:@"Arbitro" inManagedObjectContext:managedObjectContext];
     
     [arbitro2 setNumeroArbitro:[NSNumber numberWithInt:706]];
     [arbitro2 setNombre:@"Jose"];
     [arbitro2 setApellido:@"Estrada"];
     [arbitro2 setUbicacion:@"Auxiliar"];
     
-    Arbitro * arbitro3 = [[NSEntityDescription insertNewObjectForEntityForName:@"Arbitro" inManagedObjectContext:managedObjectContext]autorelease];
+    Arbitro * arbitro3 = [NSEntityDescription insertNewObjectForEntityForName:@"Arbitro" inManagedObjectContext:managedObjectContext];
     
     [arbitro3 setNumeroArbitro:[NSNumber numberWithInt:707]];
     [arbitro3 setNombre:@"Marcos"];
     [arbitro3 setApellido:@"Jimenez"];
     [arbitro3 setUbicacion:@"Auxiliar"];
     
-    Arbitro * arbitro4 = [[NSEntityDescription insertNewObjectForEntityForName:@"Arbitro" inManagedObjectContext:managedObjectContext]autorelease];
+    Arbitro * arbitro4 = [NSEntityDescription insertNewObjectForEntityForName:@"Arbitro" inManagedObjectContext:managedObjectContext];
     
     [arbitro4 setNumeroArbitro:[NSNumber numberWithInt:708]];
     [arbitro4 setNombre:@"Carlos"];
     [arbitro4 setApellido:@"Servin"];
     [arbitro4 setUbicacion:@"Mesa"];
     
-    Partido * partido = [[NSEntityDescription insertNewObjectForEntityForName:@"Partido" inManagedObjectContext:managedObjectContext]autorelease];
+    Partido * partido = [NSEntityDescription insertNewObjectForEntityForName:@"Partido" inManagedObjectContext:managedObjectContext];
     
     [partido setFecha:[NSDate dateWithTimeIntervalSinceNow:NSTimeIntervalSince1970]];
     [partido setLugar:@"Cancha 1, El calvario, Mixquiahuala, Hidalgo"];
@@ -533,11 +558,11 @@
     [partido setEquipos:[NSSet setWithObjects:local, visita, nil]];
     [partido setArbitros:[NSSet setWithObjects:arbitro1, arbitro2, arbitro3, arbitro4, nil]];
     
-    //[self salvarContexto];
+    [self salvarContexto];
     
 }
 
-- (void) salvarContexto
++ (void) salvarContexto
 {
     NSError * error;
     

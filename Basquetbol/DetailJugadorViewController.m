@@ -10,7 +10,6 @@
 
 @implementation DetailJugadorViewController
 
-@synthesize service;
 @synthesize imagenJugador;
 @synthesize numero;
 @synthesize nombre;
@@ -39,7 +38,7 @@
 
 - (void)viewDidLoad
 {
-    [self setTitle:[[jugador equipo] nombre]];
+    [self setTitle:[[[BasquetbolService jugador] equipo] nombre]];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -55,6 +54,7 @@
 {
     [super viewWillAppear:animated];
     [self showDetailJugador];
+    [self reloadInputViews];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -84,12 +84,12 @@
     longPress.minimumPressDuration = 1;
     [cell addGestureRecognizer:longPress];
     
-    cell.estadistica.text = [service getNombreEstadisticaByRow:indexPath.row];
-    cell.primer.text = [NSString stringWithFormat:@"%i", [service getEstadisticasByRow:indexPath.row byPeriodo:1 atJuego:jugador]];
-    cell.segundo.text = [NSString stringWithFormat:@"%i", [service getEstadisticasByRow:indexPath.row byPeriodo:2 atJuego:jugador]];
-    cell.tercer.text = [NSString stringWithFormat:@"%i", [service getEstadisticasByRow:indexPath.row byPeriodo:3 atJuego:jugador]];
-    cell.cuarto.text = [NSString stringWithFormat:@"%i", [service getEstadisticasByRow:indexPath.row byPeriodo:4 atJuego:jugador]];
-    cell.total.text = [NSString stringWithFormat:@"%i", [service getEstadisticasByRow:indexPath.row byPeriodo:0 atJuego:jugador]];
+    cell.estadistica.text = [BasquetbolService getNombreEstadisticaByRow:indexPath.row];
+    cell.primer.text = [NSString stringWithFormat:@"%i", [BasquetbolService getEstadisticasByRow:indexPath.row byPeriodo:1 atJuego:[BasquetbolService jugador]]];
+    cell.segundo.text = [NSString stringWithFormat:@"%i", [BasquetbolService getEstadisticasByRow:indexPath.row byPeriodo:2 atJuego:[BasquetbolService jugador]]];
+    cell.tercer.text = [NSString stringWithFormat:@"%i", [BasquetbolService getEstadisticasByRow:indexPath.row byPeriodo:3 atJuego:[BasquetbolService jugador]]];
+    cell.cuarto.text = [NSString stringWithFormat:@"%i", [BasquetbolService getEstadisticasByRow:indexPath.row byPeriodo:4 atJuego:[BasquetbolService jugador]]];
+    cell.total.text = [NSString stringWithFormat:@"%i", [BasquetbolService getEstadisticasByRow:indexPath.row byPeriodo:0 atJuego:[BasquetbolService jugador]]];
     cell.tag = indexPath.row;
     // Configure the cell.
     return cell;
@@ -102,10 +102,7 @@
     {
         DetailEstadisticaViewController *detailViewController = [[DetailEstadisticaViewController alloc] initWithNibName:@"DetailEstadisticaViewController" bundle:nil];
         // ...
-        [detailViewController setService:service];
-        [detailViewController setEstadistica:[service getNombreEstadisticaByRow:[[recognizer view] tag]]];
-        [detailViewController setJugador:jugador];
-        [detailViewController setEstadisticas:[service estadisticasPorJugador:jugador PorTipo:[service getNombreEstadisticaByRow:[[recognizer view] tag]]]];
+        [detailViewController setEstadistica:[BasquetbolService getNombreEstadisticaByRow:[[recognizer view] tag]]];
         [self.navigationController pushViewController:detailViewController animated:YES];
         [detailViewController release];
     }
@@ -113,7 +110,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[service estadisticas] count];
+    return [[[BasquetbolService estadisticas] objectAtIndex:0] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -123,26 +120,16 @@
 
 - (void)showDetailJugador
 {
-    numero.text = [NSString stringWithFormat:@"%@",[jugador numero]];
-    nombre.text = [jugador nombre];
-    apellido.text = [jugador apellido];
-    posicion.text = [jugador posicion];
-    estado.text = [jugador estado];
+    numero.text = [NSString stringWithFormat:@"%@",[[BasquetbolService jugador] numero]];
+    nombre.text = [[BasquetbolService jugador] nombre];
+    apellido.text = [[BasquetbolService jugador] apellido];
+    posicion.text = [[BasquetbolService jugador] posicion];
+    estado.text = [[BasquetbolService jugador] estado];
 }
 
 -(void) dealloc
 {   
     [super dealloc];
-}
-
-- (void) setJugador:(Jugador *) elJugador
-{
-    jugador = elJugador;
-}
-
-- (Jugador *) jugador
-{
-    return jugador;
 }
 
 @end

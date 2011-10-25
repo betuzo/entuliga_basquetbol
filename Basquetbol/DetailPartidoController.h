@@ -13,10 +13,7 @@
 #import "PartidosViewController.h"
 
 @interface DetailPartidoController : UIViewController<UITableViewDataSource, UITableViewDelegate>
-{
-    BasquetbolService * service;
-    Partido * partido;
-    
+{    
     UIImageView * imagenLocal; 
     UILabel * local;
     UILabel * localScore;
@@ -27,7 +24,6 @@
     UILabel * lugar;
     UISwitch * estado;    
 }
-@property(nonatomic, retain)BasquetbolService * service;
 @property (nonatomic, retain) IBOutlet UIImageView * imagenLocal;
 @property (nonatomic, retain) IBOutlet UILabel * local;
 @property (nonatomic, retain) IBOutlet UILabel * localScore;
@@ -38,7 +34,6 @@
 @property (nonatomic, retain) IBOutlet UILabel * lugar;
 @property (nonatomic, retain) IBOutlet UISwitch * estado;
 
-- (void) setPartido:(Partido *) elPartido;
-- (Partido *) partido;
+- (void)showDetailPartido: (Partido *) partido;
 
 @end

@@ -20,35 +20,31 @@
 #import "Asistencia.h"
 
 @interface BasquetbolService : NSObject
-{
-    NSManagedObjectModel * managedObjectModel;
-    NSPersistentStoreCoordinator * persistentStoreCoordinator; 
-    NSManagedObjectContext * managedObjectContext;
-    NSArray * estadisticas;
-    NSArray * valorTipoEnceste;
-}
 
--(void)initializePersistanceStoreCoordinator;
--(void)initializeManagedObjectContext;
--(void)initializeManageObjectModel;
--(void)inicializeCoreData;
-- (void) salvarContexto;
++(void)initializePersistanceStoreCoordinator;
++(void)initializeManagedObjectContext;
++(void)initializeManageObjectModel;
++(void)inicializeCoreData;
++ (void) salvarContexto;
 
--(UIImage *)getImageByPosicion:(NSString *)posicion;
--(UIImage *)getImageByRow:(int)row;
--(void) initializeDatosTest;
++(UIImage *)getImageByPosicion:(NSString *)posicion;
++(UIImage *)getImageByRow:(int)row;
++(void) initializeDatosTest;
++ (void)initializeDatosEstadisticas;
++ (NSArray *) partidos;
++ (NSArray *) estadisticas;
++ (Jugador *) jugador;
++ (Partido *) partido;
++ (void) setPartido:(Partido *) elPartido;
++ (void) setJugador:(Jugador *) elJugador;
 
--(NSMutableArray *) partidos;
--(NSArray *)estadisticas;
++(NSArray *) getPartidosOfContext;
 
--(NSMutableArray *) getPartidosOfContext;
-
--(NSArray *)estadisticas;
--(UIImage *)getImageByRow:(int) row;
--(int) getEstadisticasByRow:(int) row byPeriodo:(int) periodo atJuego:(Jugador *) jugador;
--(NSString *)getNombreEstadisticaByRow:(int) row;
--(NSArray *) informacionDeEstadistica:(NSString *) estadistica paraJugador:(Jugador *) jugador;
--(int)valorPorTipoEnceste:(NSString *) tipoEnceste;
-- (NSArray *)estadisticasPorJugador:(Jugador *) jugador PorTipo:(NSString *) tipoEstadistica;
-- (void)registraEstadistica:(NSString *) estadistica paraJugador:(Jugador *) jugador enMinuto:(NSString *) min deTipo:(NSString *) tipoEsta involucradoAJugador:(Jugador *) involJugador;
++(UIImage *)getImageByRow:(int) row;
++(int) getEstadisticasByRow:(int) row byPeriodo:(int) periodo atJuego:(Jugador *) jugador;
++(NSString *)getNombreEstadisticaByRow:(int) row;
++(NSArray *) informacionDeEstadistica:(NSString *) estadistica paraJugador:(Jugador *) jugador;
++(int)valorPorTipoEnceste:(NSString *) tipoEnceste;
++(NSArray *)estadisticasPorJugador:(Jugador *) jugador PorTipo:(NSString *) tipoEstadistica;
++(void)registraEstadistica:(NSString *) estadistica paraJugador:(Jugador *) jugador enMinuto:(NSString *) min deTipo:(NSString *) tipoEsta involucradoAJugador:(Jugador *) involJugador;
 @end

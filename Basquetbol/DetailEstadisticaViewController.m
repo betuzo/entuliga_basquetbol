@@ -12,7 +12,6 @@
 
 
 @synthesize estadisticaPickerView;
-@synthesize service;
 @synthesize estadistica;
 @synthesize tableEstadisticaView;
 
@@ -50,14 +49,7 @@
 	return [[[infoEstadistica objectAtIndex:component] objectAtIndex:row] description];
 }
     
-- (void) setJugador:(Jugador *) elJugador
-{
-    jugador = elJugador;
-}
-- (Jugador *) jugador
-{
-    return jugador;
-}
+
 
 - (void)handleTap:(UITapGestureRecognizer *)sender 
 {     
@@ -120,7 +112,7 @@
 {
     if(!estadisticaPickerView.hidden)
     {
-        [service registraEstadistica:estadistica paraJugador:jugador enMinuto:minuto deTipo:tipo involucradoAJugador:jugadorEstadistica];
+        [BasquetbolService registraEstadistica:estadistica paraJugador:[BasquetbolService jugador] enMinuto:minuto deTipo:tipo involucradoAJugador:jugadorEstadistica];
     }
     [self presentaVistaInicial:estadisticaPickerView.hidden];
 }
@@ -155,10 +147,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    NSLog(@"%@", estadisticas);
-    //return [[service estadisticasPorJugador:jugador PorTipo:estadistica] count];
-    return [estadisticas count];
+    return [[BasquetbolService estadisticasPorJugador:[BasquetbolService jugador] PorTipo:estadistica] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -170,7 +159,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    cell.textLabel.text = [[estadisticas objectAtIndex:indexPath.row] description];
+    cell.textLabel.text = [[[BasquetbolService estadisticasPorJugador:[BasquetbolService jugador] PorTipo:estadistica] objectAtIndex:indexPath.row] description];
     
     return cell;
 }
@@ -204,27 +193,18 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void) setEstadisticas:(NSArray *) lasEstadisticas
-{
-    estadisticas = lasEstadisticas;
-}
-- (NSArray *)estadisticas
-{
-    return estadisticas;
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    infoEstadistica = [[service informacionDeEstadistica:estadistica paraJugador:jugador] retain];  
+    infoEstadistica = [[BasquetbolService informacionDeEstadistica:estadistica paraJugador:[BasquetbolService jugador]] retain];  
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Agregar" style:UIBarButtonItemStyleBordered target:self action:@selector(addParticipante:)] autorelease];
     estadisticaPickerView.frame = CGRectMake(0, -estadisticaPickerView.frame.size.height, estadisticaPickerView.frame.size.width, estadisticaPickerView.frame.size.height);
     estadisticaPickerView.hidden = YES;
-    [self setTitle:[jugador description]];
-    UIPanGestureRecognizer * prueba = [[UIPanGestureRecognizer alloc]
-                                       initWithTarget:self action:@selector(handleTap:)];  
+    [self setTitle:[[BasquetbolService jugador] description]];
+    UIPanGestureRecognizer * prueba = [[[UIPanGestureRecognizer alloc]
+                                       initWithTarget:self action:@selector(handleTap:)] autorelease];  
     [tableEstadisticaView addGestureRecognizer:prueba];
     
     jugadorEstadistica = nil;

@@ -10,7 +10,6 @@
 
 @implementation DetailPartidoController
 
-@synthesize service;
 @synthesize imagenLocal;
 @synthesize local;
 @synthesize localScore;
@@ -45,6 +44,7 @@
     [self setTitle:@"partido"];
     self.navigationItem.rightBarButtonItem = 
     [[[UIBarButtonItem alloc] initWithTitle:@"equipos" style:UIBarButtonItemStyleBordered target:self action:@selector(showDetailEquipos:)] autorelease];
+    [self showDetailPartido:[BasquetbolService partido]];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -59,21 +59,18 @@
 {
     PartidosViewController * partidosViewController = [[PartidosViewController alloc]initWithNibName:@"PartidosViewController" bundle:nil];
     
-    [partidosViewController setEquipos:[[[partido equipos] allObjects] mutableCopy]];
-    [partidosViewController setService:service];
-    
     [[self navigationController] pushViewController:partidosViewController animated:YES];
     
     [partidosViewController release];
 }
 
-- (void)showDetailPartido
+- (void)showDetailPartido: (Partido *) partido
 {
     local.text = [[partido getEquipoLocal:YES] nombre];
     localScore.text = [NSString stringWithFormat:@"%i",[[partido getEquipoLocal:YES] puntosTotal]];
     visita.text = [[partido getEquipoLocal:NO] nombre];
     visitaScore.text = [NSString stringWithFormat:@"%i",[[partido getEquipoLocal:NO] puntosTotal]];
-    horario.text = [partido detailLongFecha];
+    horario.text = [[BasquetbolService partido] detailLongFecha];
     lugar.text = [partido lugar];
     if ([[partido estado] isEqualToString:@"Iniciado"]) 
         estado.on = YES;
@@ -85,7 +82,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self showDetailPartido];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -102,29 +98,19 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-    cell.textLabel.text = [[[[partido arbitros] allObjects] objectAtIndex:indexPath.row] description];
-    cell.detailTextLabel.text = [[[[partido arbitros] allObjects] objectAtIndex:indexPath.row] detailArbitro];
+    cell.textLabel.text = [[[[[BasquetbolService partido] arbitros] allObjects] objectAtIndex:indexPath.row] description];
+    cell.detailTextLabel.text = [[[[[BasquetbolService partido] arbitros] allObjects] objectAtIndex:indexPath.row] detailArbitro];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[partido arbitros] count];
+    return [[[BasquetbolService partido] arbitros] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return @"Arbitros";
-}
-
-- (void) setPartido:(Partido *) elPartido
-{
-    partido = elPartido;
-}
-
-- (Partido *) partido
-{
-    return partido;
 }
 
 @end

@@ -10,11 +10,8 @@
 
 @implementation RootViewController
 
-@synthesize service;
-
 - (void)viewDidLoad
 {
-    partidos = [service partidos];
     [super viewDidLoad];
 }
 
@@ -50,7 +47,7 @@
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [partidos count];
+    return [[BasquetbolService partidos] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -73,8 +70,8 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-    cell.textLabel.text = [[partidos objectAtIndex:indexPath.row] description];
-    cell.detailTextLabel.text = [[partidos objectAtIndex:indexPath.row] detailPartido];
+    cell.textLabel.text = [[[BasquetbolService partidos] objectAtIndex:indexPath.row] description];
+    cell.detailTextLabel.text = [[[BasquetbolService partidos] objectAtIndex:indexPath.row] detailPartido];
     // Configure the cell.
     return cell;
 }
@@ -126,10 +123,10 @@
     DetailPartidoController *detailViewController = [[DetailPartidoController alloc] initWithNibName:@"DetailPartidoController" bundle:nil];
     // ...
     // Pass the selected object to the new view controller.
-    [detailViewController setPartido:[partidos objectAtIndex:indexPath.row]];
-    [detailViewController setService:service];
+    [BasquetbolService setPartido:[[BasquetbolService partidos] objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
+
 	
 }
 

@@ -11,25 +11,17 @@
 
 @interface DetailEstadisticaViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource,UITableViewDataSource, UITableViewDelegate>
 {
-    BasquetbolService * service;
     NSArray * infoEstadistica;
-    Jugador * jugador;
     CGRect primeraPos;
     NSString * minuto;
     NSString * tipo;
     Jugador * jugadorEstadistica;
-    NSArray * estadisticas;
 }
 
 @property (nonatomic, strong) IBOutlet UIPickerView * estadisticaPickerView;
-@property (nonatomic, retain) BasquetbolService * service;
 @property (nonatomic, strong) NSString * estadistica;
 @property (nonatomic, strong) IBOutlet UITableView * tableEstadisticaView;
 
-- (void) setJugador:(Jugador *) elJugador;
-- (Jugador *) jugador;
 - (void) presentaVistaInicial:(BOOL) si;
-- (void) setEstadisticas:(NSArray *) lasEstadisticas;
-- (NSArray *)estadisticas;
 
 @end

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "+[BasquetbolService partido]:BasquetbolService.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailPartidoController tableView:numberOfRowsInSection:]:DetailPartidoController.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[BasquetbolService setPartido:]:BasquetbolService.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

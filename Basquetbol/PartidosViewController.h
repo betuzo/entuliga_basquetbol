@@ -12,15 +12,5 @@
 #import "DetailJugadorViewController.h"
 
 @interface PartidosViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
-{
-    BasquetbolService * service;
-    NSMutableArray * equipos;
-}
-
-@property(nonatomic, retain)BasquetbolService * service;
-
--(void)setEquipos:(NSMutableArray *) losEquipos;
-
--(NSMutableArray *) equipos;
 
 @end

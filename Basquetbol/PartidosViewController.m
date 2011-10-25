@@ -10,18 +10,6 @@
 
 @implementation PartidosViewController
 
-@synthesize service;
-
--(void)setEquipos:(NSMutableArray *) losEquipos
-{
-    equipos = losEquipos;
-}
-
--(NSMutableArray *) equipos
-{
-    return equipos;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -31,6 +19,7 @@
 {
     [self setTitle:@"equipos"];
     [super viewWillAppear:animated];
+    [self reloadInputViews];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -59,17 +48,17 @@
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [equipos count];
+    return [[[BasquetbolService partido] equipos] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[equipos objectAtIndex:section] jugadores] count];
+    return [[[[[[BasquetbolService partido] equipos]allObjects] objectAtIndex:section] jugadores] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    Equipo * tempEquipo = [equipos objectAtIndex:section];
+    Equipo * tempEquipo = [[[[BasquetbolService partido] equipos]allObjects] objectAtIndex:section];
     return [[[NSString alloc] initWithFormat:@"%@ - %@", [tempEquipo nombre], [tempEquipo tipoEquipo]] autorelease]; // ¿Esta bien el autorelease?
 }
 
@@ -91,14 +80,14 @@
         }
     }
     
-    Jugador * tempJugador = (Jugador *)[[[[equipos objectAtIndex:indexPath.section] jugadores] allObjects] objectAtIndex:indexPath.row];
+    Jugador * tempJugador = (Jugador *)[[[[[[[BasquetbolService partido] equipos]allObjects] objectAtIndex:indexPath.section] jugadores] allObjects] objectAtIndex:indexPath.row];
     
     cell.labelNombre.text = [[[NSString alloc] initWithFormat:@"%@ - %@", tempJugador.numero, tempJugador.nombre] autorelease]; // ¿Esta bien el autorelease?
     cell.labelEstado.text = tempJugador.estado;
-    cell.labelPuntos.text = [NSString stringWithFormat:@"%i PTS", [service getEstadisticasByRow:1 byPeriodo:0 atJuego:tempJugador]];
-    cell.labelFaltas.text = [NSString stringWithFormat:@"%i FTS", [service getEstadisticasByRow:2 byPeriodo:0 atJuego:tempJugador]];
-    cell.labelMinutos.text = [NSString stringWithFormat:@"%i MIN", [service getEstadisticasByRow:0 byPeriodo:0 atJuego:tempJugador]];
-    cell.imageView.image = [service getImageByPosicion:tempJugador.posicion];
+    cell.labelPuntos.text = [NSString stringWithFormat:@"%i PTS", [BasquetbolService getEstadisticasByRow:1 byPeriodo:0 atJuego:tempJugador]];
+    cell.labelFaltas.text = [NSString stringWithFormat:@"%i FTS", [BasquetbolService getEstadisticasByRow:2 byPeriodo:0 atJuego:tempJugador]];
+    cell.labelMinutos.text = [NSString stringWithFormat:@"%i MIN", [BasquetbolService getEstadisticasByRow:0 byPeriodo:0 atJuego:tempJugador]];
+    cell.imageView.image = [BasquetbolService getImageByPosicion:tempJugador.posicion];
     // Configure the cell.
     return cell;
 }
@@ -165,12 +154,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-     DetailJugadorViewController *detailViewController = [[DetailJugadorViewController alloc] initWithNibName:@"DetailJugadorViewController" bundle:nil];
-     [detailViewController setJugador:[[[[equipos objectAtIndex:indexPath.section] jugadores] allObjects] objectAtIndex:indexPath.row]];
-    [detailViewController setService:service];
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     
+     DetailJugadorViewController *detailViewController = [[[DetailJugadorViewController alloc] initWithNibName:@"DetailJugadorViewController" bundle:nil] autorelease];
+     [BasquetbolService setJugador:[[[[[[[BasquetbolService partido] equipos]allObjects] objectAtIndex:indexPath.section] jugadores] allObjects] objectAtIndex:indexPath.row]];
+     [self.navigationController pushViewController:detailViewController animated:YES];     
 }
 
 - (void)didReceiveMemoryWarning
@@ -191,7 +177,6 @@
 
 - (void)dealloc
 {
-    [equipos release];
     [super dealloc];
 }
 
