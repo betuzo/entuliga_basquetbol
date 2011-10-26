@@ -14,6 +14,7 @@
 
 @interface DetailJugadorViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {
+    UITableView * tabla;
     UIImageView * imagenJugador; 
     UILabel * numero;
     UILabel * nombre;
@@ -26,6 +27,7 @@
 @property(nonatomic, retain)IBOutlet UILabel * nombre;
 @property(nonatomic, retain)IBOutlet UILabel * apellido;
 @property(nonatomic, retain)IBOutlet UILabel * posicion;
+@property(nonatomic, retain)IBOutlet UITableView * tabla;
 @property(nonatomic, retain)IBOutlet UILabel * estado;
 
 

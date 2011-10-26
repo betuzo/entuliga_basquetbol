@@ -16,6 +16,7 @@
 @synthesize apellido;
 @synthesize posicion;
 @synthesize estado;
+@synthesize tabla;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,7 +55,8 @@
 {
     [super viewWillAppear:animated];
     [self showDetailJugador];
-    [self reloadInputViews];
+    [[self tabla] reloadData];
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

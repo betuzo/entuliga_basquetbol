@@ -18,7 +18,7 @@
 
 -(NSString *) description
 {
-    return [NSString stringWithFormat:@"Min: @% - @%", [self min], [self tipo]];
+    return [NSString stringWithFormat:@"Min: %@ - %@", [self min], [self tipo]];
 }
 
 @end

@@ -99,7 +99,7 @@
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
-						<object class="IBUIFontDescription" key="IBUIFontDescription" id="80068797">
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="128394878">
 							<string key="name">Helvetica</string>
 							<string key="family">Helvetica</string>
 							<int key="traits">0</int>
@@ -129,7 +129,7 @@
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
-						<reference key="IBUIFontDescription" ref="80068797"/>
+						<reference key="IBUIFontDescription" ref="128394878"/>
 						<reference key="IBUIFont" ref="526771890"/>
 					</object>
 					<object class="IBUILabel" id="176670050">
@@ -150,7 +150,7 @@
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
-						<object class="IBUIFontDescription" key="IBUIFontDescription" id="747547746">
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="610849154">
 							<string key="name">Helvetica</string>
 							<string key="family">Helvetica</string>
 							<int key="traits">0</int>
@@ -180,7 +180,7 @@
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
-						<reference key="IBUIFontDescription" ref="747547746"/>
+						<reference key="IBUIFontDescription" ref="610849154"/>
 						<reference key="IBUIFont" ref="397897489"/>
 					</object>
 					<object class="IBUILabel" id="316450185">
@@ -290,6 +290,14 @@
 						<reference key="destination" ref="176670050"/>
 					</object>
 					<int key="connectionID">19</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">tabla</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="985036209"/>
+					</object>
+					<int key="connectionID">22</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -427,7 +435,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">21</int>
+			<int key="maxID">22</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -445,6 +453,7 @@
 							<string>nombre</string>
 							<string>numero</string>
 							<string>posicion</string>
+							<string>tabla</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -454,6 +463,7 @@
 							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
+							<string>UITableView</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -466,6 +476,7 @@
 							<string>nombre</string>
 							<string>numero</string>
 							<string>posicion</string>
+							<string>tabla</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -492,6 +503,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">posicion</string>
 								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">tabla</string>
+								<string key="candidateClassName">UITableView</string>
 							</object>
 						</object>
 					</object>

@@ -13,13 +13,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = 
+    [[[UIBarButtonItem alloc] initWithTitle:@"gráfica" style:UIBarButtonItemStyleBordered target:self action:@selector(showDetailGrafica:)] autorelease];
+}
+
+- (void) showDetailGrafica:(id) sender
+{
+    DetailGraficaViewController *detailViewController = [[[DetailGraficaViewController alloc] initWithNibName:@"DetailGraficaViewController" bundle:nil] autorelease];
+    [self.navigationController pushViewController:detailViewController animated:YES];     
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self setTitle:@"equipos"];
     [super viewWillAppear:animated];
-    [self reloadInputViews];
+    [[self  tableView] reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated

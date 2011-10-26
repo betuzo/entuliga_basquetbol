@@ -12,6 +12,8 @@
 		4A28145F1445544F0033B164 /* JugadorCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A28145E1445544F0033B164 /* JugadorCellView.m */; };
 		4A31E14A144FF91300D60A0B /* DetailEstadisticaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A31E148144FF91200D60A0B /* DetailEstadisticaViewController.m */; };
 		4A31E14B144FF91300D60A0B /* DetailEstadisticaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A31E149144FF91200D60A0B /* DetailEstadisticaViewController.xib */; };
+		4A4581381457C9A9006BA8DA /* DetailGraficaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4581361457C9A9006BA8DA /* DetailGraficaViewController.m */; };
+		4A4581391457C9A9006BA8DA /* DetailGraficaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4581371457C9A9006BA8DA /* DetailGraficaViewController.xib */; };
 		4A775F46144B2CA0009727DE /* Partido.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A775F45144B2CA0009727DE /* Partido.m */; };
 		4A95C5F71448F28F006887DF /* foto.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4A95C5F61448F28F006887DF /* foto.jpeg */; };
 		4A9F69CA14469FAD003517B7 /* Arbitro.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F69C914469FAD003517B7 /* Arbitro.m */; };
@@ -61,6 +63,9 @@
 		4A31E147144FF91200D60A0B /* DetailEstadisticaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailEstadisticaViewController.h; sourceTree = "<group>"; };
 		4A31E148144FF91200D60A0B /* DetailEstadisticaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailEstadisticaViewController.m; sourceTree = "<group>"; };
 		4A31E149144FF91200D60A0B /* DetailEstadisticaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailEstadisticaViewController.xib; sourceTree = "<group>"; };
+		4A4581351457C9A9006BA8DA /* DetailGraficaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailGraficaViewController.h; sourceTree = "<group>"; };
+		4A4581361457C9A9006BA8DA /* DetailGraficaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailGraficaViewController.m; sourceTree = "<group>"; };
+		4A4581371457C9A9006BA8DA /* DetailGraficaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailGraficaViewController.xib; sourceTree = "<group>"; };
 		4A775F44144B2CA0009727DE /* Partido.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Partido.h; sourceTree = "<group>"; };
 		4A775F45144B2CA0009727DE /* Partido.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Partido.m; sourceTree = "<group>"; };
 		4A95C5F61448F28F006887DF /* foto.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = foto.jpeg; sourceTree = "<group>"; };
@@ -219,6 +224,9 @@
 				4A31E148144FF91200D60A0B /* DetailEstadisticaViewController.m */,
 				4A31E149144FF91200D60A0B /* DetailEstadisticaViewController.xib */,
 				4AA786A81446291700DD8DC1 /* PartidosViewController.m */,
+				4A4581351457C9A9006BA8DA /* DetailGraficaViewController.h */,
+				4A4581361457C9A9006BA8DA /* DetailGraficaViewController.m */,
+				4A4581371457C9A9006BA8DA /* DetailGraficaViewController.xib */,
 				4AA786A91446291700DD8DC1 /* PartidosViewController.xib */,
 				4AF755911443B11600163570 /* RootViewController.xib */,
 				4AF755801443B11600163570 /* Supporting Files */,
@@ -308,6 +316,7 @@
 				4AC482491448D30D00509262 /* DetailJugadorViewController.xib in Resources */,
 				4A95C5F71448F28F006887DF /* foto.jpeg in Resources */,
 				4A31E14B144FF91300D60A0B /* DetailEstadisticaViewController.xib in Resources */,
+				4A4581391457C9A9006BA8DA /* DetailGraficaViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +349,7 @@
 				4AC482481448D30D00509262 /* DetailJugadorViewController.m in Sources */,
 				4A775F46144B2CA0009727DE /* Partido.m in Sources */,
 				4A31E14A144FF91300D60A0B /* DetailEstadisticaViewController.m in Sources */,
+				4A4581381457C9A9006BA8DA /* DetailGraficaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

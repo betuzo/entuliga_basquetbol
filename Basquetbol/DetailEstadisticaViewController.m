@@ -113,6 +113,8 @@
     if(!estadisticaPickerView.hidden)
     {
         [BasquetbolService registraEstadistica:estadistica paraJugador:[BasquetbolService jugador] enMinuto:minuto deTipo:tipo involucradoAJugador:jugadorEstadistica];
+        [[self  tableEstadisticaView] reloadData];
+
     }
     [self presentaVistaInicial:estadisticaPickerView.hidden];
 }
@@ -218,6 +220,11 @@
     if([infoEstadistica count] == 3)
         if ([[infoEstadistica objectAtIndex:2] count] > 0)
             jugadorEstadistica = [[infoEstadistica objectAtIndex:2] objectAtIndex:0];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidUnload

@@ -44,7 +44,6 @@
     [self setTitle:@"partido"];
     self.navigationItem.rightBarButtonItem = 
     [[[UIBarButtonItem alloc] initWithTitle:@"equipos" style:UIBarButtonItemStyleBordered target:self action:@selector(showDetailEquipos:)] autorelease];
-    [self showDetailPartido:[BasquetbolService partido]];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -82,6 +81,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self showDetailPartido:[BasquetbolService partido]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
