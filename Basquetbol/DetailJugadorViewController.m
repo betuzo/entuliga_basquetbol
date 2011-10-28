@@ -87,11 +87,11 @@
     [cell addGestureRecognizer:longPress];
     
     cell.estadistica.text = [BasquetbolService getNombreEstadisticaByRow:indexPath.row];
-    cell.primer.text = [NSString stringWithFormat:@"%i", [BasquetbolService getEstadisticasByRow:indexPath.row byPeriodo:1 atJuego:[BasquetbolService jugador]]];
-    cell.segundo.text = [NSString stringWithFormat:@"%i", [BasquetbolService getEstadisticasByRow:indexPath.row byPeriodo:2 atJuego:[BasquetbolService jugador]]];
-    cell.tercer.text = [NSString stringWithFormat:@"%i", [BasquetbolService getEstadisticasByRow:indexPath.row byPeriodo:3 atJuego:[BasquetbolService jugador]]];
-    cell.cuarto.text = [NSString stringWithFormat:@"%i", [BasquetbolService getEstadisticasByRow:indexPath.row byPeriodo:4 atJuego:[BasquetbolService jugador]]];
-    cell.total.text = [NSString stringWithFormat:@"%i", [BasquetbolService getEstadisticasByRow:indexPath.row byPeriodo:0 atJuego:[BasquetbolService jugador]]];
+    cell.primer.text = [NSString stringWithFormat:@"%i", [BasquetbolService  totalByEstadistica:cell.estadistica.text byPeriodo:1 atJuego:[BasquetbolService jugador]]];
+    cell.segundo.text = [NSString stringWithFormat:@"%i", [BasquetbolService totalByEstadistica:cell.estadistica.text byPeriodo:2 atJuego:[BasquetbolService jugador]]];
+    cell.tercer.text = [NSString stringWithFormat:@"%i", [BasquetbolService totalByEstadistica:cell.estadistica.text byPeriodo:3 atJuego:[BasquetbolService jugador]]];
+    cell.cuarto.text = [NSString stringWithFormat:@"%i", [BasquetbolService totalByEstadistica:cell.estadistica.text byPeriodo:4 atJuego:[BasquetbolService jugador]]];
+    cell.total.text = [NSString stringWithFormat:@"%i", [BasquetbolService totalByEstadistica:cell.estadistica.text byPeriodo:0 atJuego:[BasquetbolService jugador]]];
     cell.tag = indexPath.row;
     // Configure the cell.
     return cell;

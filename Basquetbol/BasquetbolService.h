@@ -41,10 +41,13 @@
 +(NSArray *) getPartidosOfContext;
 
 +(UIImage *)getImageByRow:(int) row;
-+(int) getEstadisticasByRow:(int) row byPeriodo:(int) periodo atJuego:(Jugador *) jugador;
++(int) totalByEstadistica:(NSString *) estadistica byPeriodo:(int) periodo atJuego:(Jugador *) jugador;
++(int) totalPorEstadistica:(NSString *) estadistica PorEquipo:(Equipo *) equipo;
++ (int) totalMayorPorEstadistica:(NSString *) estadistica PorPartido:(Partido *) partido;
 +(NSString *)getNombreEstadisticaByRow:(int) row;
 +(NSArray *) informacionDeEstadistica:(NSString *) estadistica paraJugador:(Jugador *) jugador;
 +(int)valorPorTipoEnceste:(NSString *) tipoEnceste;
 +(NSArray *)estadisticasPorJugador:(Jugador *) jugador PorTipo:(NSString *) tipoEstadistica;
++(NSArray *)estadisticasPorEquipo:(Equipo *) equipo PorTipo:(NSString *) tipoEstadistica;
 +(void)registraEstadistica:(NSString *) estadistica paraJugador:(Jugador *) jugador enMinuto:(NSString *) min deTipo:(NSString *) tipoEsta involucradoAJugador:(Jugador *) involJugador;
 @end

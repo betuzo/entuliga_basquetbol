@@ -92,9 +92,9 @@
     
     cell.labelNombre.text = [[[NSString alloc] initWithFormat:@"%@ - %@", tempJugador.numero, tempJugador.nombre] autorelease]; // ¿Esta bien el autorelease?
     cell.labelEstado.text = tempJugador.estado;
-    cell.labelPuntos.text = [NSString stringWithFormat:@"%i PTS", [BasquetbolService getEstadisticasByRow:1 byPeriodo:0 atJuego:tempJugador]];
-    cell.labelFaltas.text = [NSString stringWithFormat:@"%i FTS", [BasquetbolService getEstadisticasByRow:2 byPeriodo:0 atJuego:tempJugador]];
-    cell.labelMinutos.text = [NSString stringWithFormat:@"%i MIN", [BasquetbolService getEstadisticasByRow:0 byPeriodo:0 atJuego:tempJugador]];
+    cell.labelPuntos.text = [NSString stringWithFormat:@"%i PTS", [BasquetbolService totalByEstadistica:[NSString stringWithString:@"PTS"] byPeriodo:0 atJuego:tempJugador]];
+    cell.labelFaltas.text = [NSString stringWithFormat:@"%i FTS", [BasquetbolService totalByEstadistica:[NSString stringWithString:@"FTS"]  byPeriodo:0 atJuego:tempJugador]];
+    cell.labelMinutos.text = [NSString stringWithFormat:@"%i MIN", [BasquetbolService totalByEstadistica:[NSString stringWithString:@"MIN"]  byPeriodo:0 atJuego:tempJugador]];
     cell.imageView.image = [BasquetbolService getImageByPosicion:tempJugador.posicion];
     // Configure the cell.
     return cell;

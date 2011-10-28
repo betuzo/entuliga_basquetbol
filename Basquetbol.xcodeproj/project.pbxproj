@@ -33,6 +33,7 @@
 		4AC482441448CE3900509262 /* DetailJugadorCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AC482431448CE3900509262 /* DetailJugadorCellView.xib */; };
 		4AC482481448D30D00509262 /* DetailJugadorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC482461448D30D00509262 /* DetailJugadorViewController.m */; };
 		4AC482491448D30D00509262 /* DetailJugadorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AC482471448D30D00509262 /* DetailJugadorViewController.xib */; };
+		4AD7852F1457E0160093BD91 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD7852E1457E0160093BD91 /* QuartzCore.framework */; };
 		4AE0DC5A1447415000C02F11 /* DetailPartidoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE0DC581447415000C02F11 /* DetailPartidoController.m */; };
 		4AE0DC5B1447415000C02F11 /* DetailPartidoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AE0DC591447415000C02F11 /* DetailPartidoController.xib */; };
 		4AE60CB61445D60B0044F7FA /* movedor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AE60CB11445D60B0044F7FA /* movedor.jpg */; };
@@ -41,6 +42,7 @@
 		4AE60CB91445D60B0044F7FA /* postederecho.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AE60CB41445D60B0044F7FA /* postederecho.jpg */; };
 		4AE60CBA1445D60B0044F7FA /* aladerecha.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AE60CB51445D60B0044F7FA /* aladerecha.jpg */; };
 		4AE60CBD1445D6860044F7FA /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AE60CBC1445D6860044F7FA /* base.png */; };
+		4AF5C568145926390014BD41 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5C567145926390014BD41 /* GraphView.m */; };
 		4AF7557A1443B11600163570 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF755791443B11600163570 /* UIKit.framework */; };
 		4AF7557C1443B11600163570 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF7557B1443B11600163570 /* Foundation.framework */; };
 		4AF7557E1443B11600163570 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF7557D1443B11600163570 /* CoreGraphics.framework */; };
@@ -99,6 +101,7 @@
 		4AC482451448D30C00509262 /* DetailJugadorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailJugadorViewController.h; sourceTree = "<group>"; };
 		4AC482461448D30D00509262 /* DetailJugadorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailJugadorViewController.m; sourceTree = "<group>"; };
 		4AC482471448D30D00509262 /* DetailJugadorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailJugadorViewController.xib; sourceTree = "<group>"; };
+		4AD7852E1457E0160093BD91 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4AE0DC571447415000C02F11 /* DetailPartidoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPartidoController.h; sourceTree = "<group>"; };
 		4AE0DC581447415000C02F11 /* DetailPartidoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailPartidoController.m; sourceTree = "<group>"; };
 		4AE0DC591447415000C02F11 /* DetailPartidoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailPartidoController.xib; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 		4AE60CB41445D60B0044F7FA /* postederecho.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = postederecho.jpg; sourceTree = "<group>"; };
 		4AE60CB51445D60B0044F7FA /* aladerecha.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aladerecha.jpg; sourceTree = "<group>"; };
 		4AE60CBC1445D6860044F7FA /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base.png; sourceTree = "<group>"; };
+		4AF5C566145926390014BD41 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
+		4AF5C567145926390014BD41 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 		4AF755751443B11600163570 /* Basquetbol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Basquetbol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF755791443B11600163570 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4AF7557B1443B11600163570 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -131,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AD7852F1457E0160093BD91 /* QuartzCore.framework in Frameworks */,
 				4AF755A31443B34500163570 /* CoreData.framework in Frameworks */,
 				4AF7557A1443B11600163570 /* UIKit.framework in Frameworks */,
 				4AF7557C1443B11600163570 /* Foundation.framework in Frameworks */,
@@ -144,7 +150,6 @@
 		4AF7556A1443B11600163570 = {
 			isa = PBXGroup;
 			children = (
-				4AF755A21443B34500163570 /* CoreData.framework */,
 				4AF755991443B14900163570 /* Basquetbol.xcdatamodeld */,
 				4A775F44144B2CA0009727DE /* Partido.h */,
 				4A775F45144B2CA0009727DE /* Partido.m */,
@@ -185,6 +190,8 @@
 		4AF755781443B11600163570 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4AF755A21443B34500163570 /* CoreData.framework */,
+				4AD7852E1457E0160093BD91 /* QuartzCore.framework */,
 				4AF755791443B11600163570 /* UIKit.framework */,
 				4AF7557B1443B11600163570 /* Foundation.framework */,
 				4AF7557D1443B11600163570 /* CoreGraphics.framework */,
@@ -208,6 +215,8 @@
 				4AE60CB21445D60B0044F7FA /* alaizquierda.jpg */,
 				4AE60CB31445D60B0044F7FA /* posteizquierdo.jpg */,
 				4AE60CB41445D60B0044F7FA /* postederecho.jpg */,
+				4AF5C566145926390014BD41 /* GraphView.h */,
+				4AF5C567145926390014BD41 /* GraphView.m */,
 				4AE60CB51445D60B0044F7FA /* aladerecha.jpg */,
 				4A281459144548D90033B164 /* JugadorCell.xib */,
 				4A28145D1445544F0033B164 /* JugadorCellView.h */,
@@ -350,6 +359,7 @@
 				4A775F46144B2CA0009727DE /* Partido.m in Sources */,
 				4A31E14A144FF91300D60A0B /* DetailEstadisticaViewController.m in Sources */,
 				4A4581381457C9A9006BA8DA /* DetailGraficaViewController.m in Sources */,
+				4AF5C568145926390014BD41 /* GraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

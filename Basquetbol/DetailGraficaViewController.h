@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BasquetbolService.h"
+#import "GraphView.h"
+
 
 @interface DetailGraficaViewController : UIViewController
+{
+    CALayer * layerGrafica;
+}
+
+@property (nonatomic, strong) IBOutlet UILabel * estadistica;
+
+- (IBAction) selEstadisticaChanged:     (UISlider *) sender;
+
+- (GraphView *) graficaByRect:(CGRect) frameGraphView;
 
 @end

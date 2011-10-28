@@ -59,6 +59,17 @@ static Jugador * jugador = nil;
     return jugador;
 }
 
++ (int) totalMayorPorEstadistica:(NSString *) estadistica PorPartido:(Partido *) partido
+{
+    int total = 0;
+    for (id equipo in [partido equipos]) {
+        int totalTmp = [BasquetbolService totalPorEstadistica:estadistica PorEquipo:equipo];
+        if (totalTmp > total)
+            total = totalTmp;
+    }
+    return total;
+}
+
 + (void)initializeDatosEstadisticas
 {
     [BasquetbolService inicializeCoreData];
@@ -80,6 +91,27 @@ static Jugador * jugador = nil;
                                 [[[NSArray alloc] initWithObjects:@"NORMAL", @"DE TRES", @"LINEA", nil] autorelease],
                                 [[[NSArray alloc] initWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:1], nil] autorelease],
                                 nil];
+}
+
++(NSArray *)estadisticasPorEquipo:(Equipo *) equipo PorTipo:(NSString *) tipoEstadistica
+{
+    NSMutableArray * estadisticas = [[[NSMutableArray alloc] init] autorelease];
+    for (id jugador in [equipo jugadores]) {
+        for (id estadistica in [BasquetbolService estadisticasPorJugador:jugador PorTipo:tipoEstadistica]) {
+            [estadisticas addObject:estadistica];
+        }
+    }
+    return estadisticas;
+}
+
++(int) totalPorEstadistica:(NSString *) estadistica PorEquipo:(Equipo *) equipo
+{
+    int total = 0;
+    for (id jugador in [equipo jugadores]) 
+    {
+        total = total + [BasquetbolService totalByEstadistica:estadistica byPeriodo:0 atJuego:jugador];
+    }
+    return total;
 }
 
 +(NSArray *)estadisticasPorJugador:(Jugador *) jugador PorTipo:(NSString *) tipoEstadistica
@@ -225,7 +257,7 @@ static Jugador * jugador = nil;
     }
 }
 
-+(int) getEstadisticasByRow:(int) row byPeriodo:(int) periodo atJuego:(Jugador *) jugador
++(int) totalByEstadistica:(NSString *) estadistica byPeriodo:(int) periodo atJuego:(Jugador *) jugador
 {
     int totalEstadisticas = 0;
     Partido * partido = (Partido *) [[jugador equipo] partido];
@@ -237,32 +269,20 @@ static Jugador * jugador = nil;
     }
     if([[partido numeroPeriodos] intValue] >= periodo && periodo >= -1)
     {
-        switch (row) {
-            case 0:
-                totalEstadisticas = [jugador minutosEntre:minIni Y:minFin];
-                break;
-            case 1:
-                totalEstadisticas = [jugador puntosEntre:minIni Y:minFin];
-                break;
-            case 2:
-                totalEstadisticas = [jugador faltasEntre:minIni Y:minFin];
-                break;
-            case 3:
-                totalEstadisticas = [jugador rebotesEntre:minIni Y:minFin];
-                break;
-            case 4:
-                totalEstadisticas = [jugador bloqueosEntre:minIni Y:minFin];
-                break;
-            case 5:
-                totalEstadisticas = [jugador asistenciasEntre:minIni Y:minFin];
-                break;
-            case 6:
-                totalEstadisticas = [jugador robosEntre:minIni Y:minFin];
-                break;
-            
-            default:
-                break;
-        }
+        if ([estadistica isEqualToString:@"MIN"]) 
+            totalEstadisticas = [jugador minutosEntre:minIni Y:minFin];
+        if ([estadistica isEqualToString:@"PTS"]) 
+            totalEstadisticas = [jugador puntosEntre:minIni Y:minFin];
+        if ([estadistica isEqualToString:@"FTS"]) 
+            totalEstadisticas = [jugador faltasEntre:minIni Y:minFin];
+        if ([estadistica isEqualToString:@"RBT"]) 
+            totalEstadisticas = [jugador rebotesEntre:minIni Y:minFin];
+        if ([estadistica isEqualToString:@"BLQ"]) 
+            totalEstadisticas = [jugador bloqueosEntre:minIni Y:minFin];
+        if ([estadistica isEqualToString:@"AST"]) 
+            totalEstadisticas = [jugador asistenciasEntre:minIni Y:minFin];
+        if ([estadistica isEqualToString:@"RBS"]) 
+            totalEstadisticas = [jugador robosEntre:minIni Y:minFin];
     }
     return totalEstadisticas;
 }
